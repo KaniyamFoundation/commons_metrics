@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Wikimedia Commons Contributor Metrics Dashboard
+   Style overrides, theme variables & animations
+   ========================================================================== */
+
+:root {
+  --wiki-blue: #006699;
+  --wiki-blue-dark: #004d73;
+  --wiki-blue-light: #e6f2f8;
+  --wiki-green: #339966;
+  --wiki-green-light: #eaf6ef;
+  --wiki-red: #990000;
+  --wiki-text-main: #202122;
+  --wiki-text-muted: #54595d;
+  --wiki-border: #e2e8f0;
+  --wiki-bg: #f8fafc;
+  --wiki-card-bg: #ffffff;
+}
+
+.dark {
+  --wiki-blue: #38bdf8;
+  --wiki-blue-dark: #0284c7;
+  --wiki-blue-light: rgba(56, 189, 248, 0.12);
+  --wiki-green: #34d399;
+  --wiki-green-light: rgba(52, 211, 153, 0.12);
+  --wiki-red: #f87171;
+  --wiki-text-main: #f1f5f9;
+  --wiki-text-muted: #94a3b8;
+  --wiki-border: #334155;
+  --wiki-bg: #0f172a;
+  --wiki-card-bg: #1e293b;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--wiki-bg);
+  color: var(--wiki-text-main);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Podium badges */
+.rank-badge-1 {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.35);
+}
+
+.rank-badge-2 {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+  color: white;
+  box-shadow: 0 4px 10px rgba(148, 163, 184, 0.35);
+}
+
+.rank-badge-3 {
+  background: linear-gradient(135deg, #b45309, #78350f);
+  color: white;
+  box-shadow: 0 4px 10px rgba(180, 83, 9, 0.35);
+}
+
+/* User Right Badges */
+.badge-admin {
+  background-color: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+.badge-autopatrolled {
+  background-color: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.badge-filemover {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-reviewer {
+  background-color: rgba(168, 85, 247, 0.12);
+  color: #9333ea;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+/* Card Hover */
+.contributor-card {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+}
+
+.dark .contributor-card:hover {
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Progress bar fill transition */
+.volume-bar {
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Image preview thumbnail */
+.preview-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-thumb img {
+  transition: transform 0.3s ease;
+}
+
+.preview-thumb:hover img {
+  transform: scale(1.06);
+}
+
+/* Modal animation */
+.modal-overlay {
+  transition: opacity 0.25s ease-out;
+}
+
+.modal-content {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+}
+
+/* Toast */
+#toast {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Pulse animation for live queries */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}

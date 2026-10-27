@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CommonsPulse — Wikimedia Commons Contributor Metrics</title>
+  <meta name="description" content="Metrics, analytics, and leaderboards of Wikimedia Commons high-volume contributors from India and global campaigns.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#006699',
+              dark: '#004d73',
+              light: '#38bdf8'
+            },
+            wikiGreen: '#339966',
+            wikiRed: '#990000',
+            wikiSlate: '#202122'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-200">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center bg-primary">
+          <img src="assets/logo.svg" alt="CommonsPulse Logo" class="w-8 h-8">
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white">CommonsPulse</span>
+            <span class="px-2 py-0.5 text-[10px] uppercase tracking-wider font-bold rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+              India Focus 🇮🇳
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400">Wikimedia Commons Contributor Observatory</p>
+        </div>
+      </a>
+
+      <!-- Quick Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <button data-tab="leaderboard" class="nav-tab-btn px-3 py-1.5 rounded-lg border-b-2 transition-colors">
+          Leaderboard
+        </button>
+        <button data-tab="campaigns" class="nav-tab-btn px-3 py-1.5 rounded-lg border-b-2 transition-colors">
+          Campaigns
+        </button>
+        <button data-tab="inspector" class="nav-tab-btn px-3 py-1.5 rounded-lg border-b-2 transition-colors">
+          Live Inspector
+        </button>
+        <button data-tab="explorer" class="nav-tab-btn px-3 py-1.5 rounded-lg border-b-2 transition-colors">
+          Category Scanner
+        </button>
+        <button data-tab="benchmarks" class="nav-tab-btn px-3 py-1.5 rounded-lg border-b-2 transition-colors">
+          Global Benchmarks
+        </button>
+        <button data-tab="insights" class="nav-tab-btn px-3 py-1.5 rounded-lg border-b-2 transition-colors">
+          Analytics
+        </button>
+      </nav>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-2">
+        <!-- Theme toggle -->
+        <button id="theme-toggle-btn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle Theme">
+          <i id="theme-toggle-icon" data-lucide="moon" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Direct Commons Link -->
+        <a href="https://commons.wikimedia.org" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+          <span>Commons</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Sub-bar -->
+    <div class="md:hidden flex items-center gap-2 overflow-x-auto px-4 py-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold no-scrollbar">
+      <button data-tab="leaderboard" class="nav-tab-btn whitespace-nowrap px-3 py-1 rounded-md border-b-2">Leaderboard</button>
+      <button data-tab="campaigns" class="nav-tab-btn whitespace-nowrap px-3 py-1 rounded-md border-b-2">Campaigns</button>
+      <button data-tab="inspector" class="nav-tab-btn whitespace-nowrap px-3 py-1 rounded-md border-b-2">Inspector</button>
+      <button data-tab="explorer" class="nav-tab-btn whitespace-nowrap px-3 py-1 rounded-md border-b-2">Categories</button>
+      <button data-tab="benchmarks" class="nav-tab-btn whitespace-nowrap px-3 py-1 rounded-md border-b-2">Global</button>
+      <button data-tab="insights" class="nav-tab-btn whitespace-nowrap px-3 py-1 rounded-md border-b-2">Analytics</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-sky-50/50 via-white to-transparent dark:from-slate-900/60 dark:via-slate-950 dark:to-transparent border-b border-slate-200/60 dark:border-slate-800/60 pt-8 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-sky-400 text-xs font-bold mb-3">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Indian Wikimedians Media Contribution Observatory</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+            Wikimedia Commons Contributor Metrics
+          </h1>
+          <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+            Exploring high-volume uploaders, regional heritage champions, and national campaigns across India that power Wikipedia with freely-licensed media.
+          </p>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button id="export-csv-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 text-slate-700 dark:text-slate-200 shadow-sm transition-colors">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Export CSV</span>
+          </button>
+          <button id="export-json-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 text-slate-700 dark:text-slate-200 shadow-sm transition-colors">
+            <i data-lucide="file-code" class="w-3.5 h-3.5"></i>
+            <span>Export JSON</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI METRIC CARDS -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Total Uploads -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Tracked Media Uploads</span>
+            <div class="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-950 flex items-center justify-center text-primary dark:text-sky-400">
+              <i data-lucide="image" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="stat-total-uploads" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">...</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Namespace 6 (File:) contributions</p>
+        </div>
+
+        <!-- Cataloged Contributors -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Indian Contributors</span>
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <i data-lucide="users" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="stat-total-contributors" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">...</span>
+            <span class="text-xs text-emerald-600 font-semibold">Active</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">With 400+ to 64,000+ uploads</p>
+        </div>
+
+        <!-- Quality & Valued Images -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Quality & Valued</span>
+            <div class="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950 flex items-center justify-center text-amber-500">
+              <i data-lucide="award" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="stat-total-qi" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">...</span>
+            <span class="text-xs text-amber-500 font-semibold">Peer Reviewed</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">QI, VI & FP badge recognitions</p>
+        </div>
+
+        <!-- Storage Contributed -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Storage Footprint</span>
+            <div class="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+              <i data-lucide="hard-drive" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="stat-total-storage" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">...</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Free repository media volume</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN TABBED CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+    <!-- TAB 1: LEADERBOARD -->
+    <section id="tab-leaderboard" class="tab-section">
+      
+      <!-- Filter Bar -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 mb-6 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="contributor-search" placeholder="Search contributor username, real name, city, or theme..." class="w-full pl-10 pr-4 py-2 text-sm rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary/40">
+        </div>
+
+        <!-- Filter Selects -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          
+          <!-- State Filter -->
+          <div class="flex items-center gap-1.5 text-xs text-slate-500">
+            <span>State:</span>
+            <select id="state-filter" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
+              <option value="all">All India (All States)</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Andhra Pradesh / Telangana">Andhra / Telangana</option>
+              <option value="Maharashtra / Rajasthan">Maharashtra / Rajasthan</option>
+            </select>
+          </div>
+
+          <!-- Min Uploads -->
+          <div class="flex items-center gap-1.5 text-xs text-slate-500">
+            <span>Uploads:</span>
+            <select id="min-uploads-filter" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
+              <option value="0">All Upload Volumes</option>
+              <option value="1000">&gt; 1,000 files</option>
+              <option value="3000">&gt; 3,000 files</option>
+              <option value="5000">&gt; 5,000 files</option>
+              <option value="10000">&gt; 10,000 files</option>
+              <option value="20000">&gt; 20,000 files</option>
+            </select>
+          </div>
+
+          <!-- Sort Select -->
+          <div class="flex items-center gap-1.5 text-xs text-slate-500">
+            <span>Sort:</span>
+            <select id="sort-by-select" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
+              <option value="uploads">Uploads (Highest first)</option>
+              <option value="editCount">Total Edit Count</option>
+              <option value="qualityImages">Quality Images (QI)</option>
+              <option value="registration">Active Since</option>
+              <option value="username">Username (A-Z)</option>
+            </select>
+          </div>
+
+          <!-- View Toggle -->
+          <div class="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
+            <button id="view-table-btn" class="p-1.5 rounded-md text-slate-600 dark:text-slate-300 hover:text-primary transition-colors bg-white dark:bg-slate-900 shadow-sm" title="Table View">
+              <i data-lucide="table" class="w-4 h-4"></i>
+            </button>
+            <button id="view-cards-btn" class="p-1.5 rounded-md text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" title="Cards View">
+              <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Result Count Banner -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">High Volume Contributors from India</h2>
+          <span id="filtered-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300">
+            ...
+          </span>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Click any user to inspect live uploads &amp; metadata</p>
+      </div>
+
+      <!-- LEADERBOARD TABLE VIEW -->
+      <div id="leaderboard-table-view" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50/80 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <th class="py-3.5 px-4 text-center w-14">Rank</th>
+                <th class="py-3.5 px-4">Contributor</th>
+                <th class="py-3.5 px-4">Uploads (Ns 6)</th>
+                <th class="py-3.5 px-4">Edits</th>
+                <th class="py-3.5 px-4">Quality Badges</th>
+                <th class="py-3.5 px-4">State &amp; Themes</th>
+                <th class="py-3.5 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-tbody" class="divide-y divide-slate-100 dark:divide-slate-800/80 text-sm">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LEADERBOARD CARDS VIEW -->
+      <div id="leaderboard-cards-view" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Dynamically populated -->
+      </div>
+
+    </section>
+
+    <!-- TAB 2: CAMPAIGNS -->
+    <section id="tab-campaigns" class="tab-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Major India Upload Initiatives</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+          Structured campaigns that drive bulk media contributions to Wikimedia Commons from India.
+        </p>
+      </div>
+
+      <div id="campaigns-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- TAB 3: LIVE CONTRIBUTOR INSPECTOR -->
+    <section id="tab-inspector" class="tab-section hidden">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="text-center mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary dark:text-sky-400 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="search" class="w-6 h-6"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Live Contributor Inspector</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Lookup ANY Wikimedia Commons username in real-time to analyze their upload volume, rights, and latest media.
+          </p>
+        </div>
+
+        <!-- Search Form -->
+        <form id="inspector-search-form" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-md flex items-center gap-3 mb-6">
+          <div class="relative flex-1">
+            <i data-lucide="user" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="inspector-input" placeholder="e.g. Gangulybiswarup, Jkadavoor, Bodhisattwa, or your username..." class="w-full pl-9 pr-4 py-2 text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border-none focus:outline-none">
+          </div>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+            <span>Inspect Live</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+        <!-- Quick Suggestions -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
+          <span class="text-xs text-slate-400">Popular Indian Uploaders:</span>
+          <button class="px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary inspect-btn" data-username="Gangulybiswarup">Gangulybiswarup (64.7k)</button>
+          <button class="px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary inspect-btn" data-username="Pinakpani">Pinakpani (31k)</button>
+          <button class="px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary inspect-btn" data-username="Sumita Roy Dutta">Sumita Roy Dutta (22.3k)</button>
+          <button class="px-2.5 py-1 rounded-lg text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary inspect-btn" data-username="Jkadavoor">Jkadavoor (1.1k QI)</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 4: CATEGORY SCANNER -->
+    <section id="tab-explorer" class="tab-section hidden">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="text-center mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="scan" class="w-6 h-6"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Live Category Scanner</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Input ANY Wikimedia Commons Category name to generate an on-the-fly contributor leaderboard.
+          </p>
+        </div>
+
+        <!-- Presets -->
+        <div class="mb-4">
+          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2 text-center">Quick Preset Categories</span>
+          <div id="category-presets-container" class="flex flex-wrap items-center justify-center gap-2">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Scanner Form -->
+        <form id="category-scanner-form" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-md flex items-center gap-3 mb-8">
+          <div class="relative flex-1">
+            <i data-lucide="folder" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="category-input" placeholder="e.g. Images from Wiki Loves Monuments 2023 in India" value="Images from Wiki Loves Monuments 2023 in India" class="w-full pl-9 pr-4 py-2 text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border-none focus:outline-none">
+          </div>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+            <span>Scan Category</span>
+            <i data-lucide="play" class="w-3.5 h-3.5"></i>
+          </button>
+        </form>
+
+        <!-- Loader -->
+        <div id="category-scanner-loader" class="hidden text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-emerald-500 border-t-transparent mb-3"></div>
+          <p id="category-scan-status" class="text-sm font-medium text-slate-600 dark:text-slate-300">Scanning Commons API...</p>
+        </div>
+
+        <!-- Results Box -->
+        <div id="category-results-box" class="hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-4 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <span class="text-xs font-semibold uppercase text-emerald-600 dark:text-emerald-400">Category Scan Result</span>
+              <h3 id="cat-res-title" class="text-xl font-bold text-slate-900 dark:text-white mt-0.5">...</h3>
+            </div>
+            <div class="flex items-center gap-4 text-right">
+              <div>
+                <span class="text-xs text-slate-400 block">Files Scanned</span>
+                <span id="cat-res-files" class="font-black text-lg text-slate-900 dark:text-white">...</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Contributors</span>
+                <span id="cat-res-contributors" class="font-black text-lg text-emerald-600">...</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Total Volume</span>
+                <span id="cat-res-size" class="font-black text-lg text-slate-900 dark:text-white">...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Leaderboard Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead>
+                <tr class="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase">
+                  <th class="py-3 px-4 text-center w-12">#</th>
+                  <th class="py-3 px-4">Contributor</th>
+                  <th class="py-3 px-4">Files in Category</th>
+                  <th class="py-3 px-4">Total Size</th>
+                  <th class="py-3 px-4 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="category-leaderboard-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 5: GLOBAL BENCHMARKS -->
+    <section id="tab-benchmarks" class="tab-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Global Volume Benchmarks</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+          Comparing India's prolific uploaders with international high-volume contributors and GLAM bulk uploaders.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead>
+              <tr class="bg-slate-50/80 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <th class="py-3.5 px-4 text-center w-14">#</th>
+                <th class="py-3.5 px-4">User</th>
+                <th class="py-3.5 px-4">Country / Scope</th>
+                <th class="py-3.5 px-4">Upload Count</th>
+                <th class="py-3.5 px-4">Primary Themes</th>
+                <th class="py-3.5 px-4 text-right">Commons Profile</th>
+              </tr>
+            </thead>
+            <tbody id="global-benchmarks-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: VISUAL ANALYTICS & INSIGHTS -->
+    <section id="tab-insights" class="tab-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Visual Analytics &amp; Insights</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+          Statistical distribution of Wikimedia Commons uploads across Indian contributors and campaigns.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        
+        <!-- Top 10 Horizontal Bar Chart -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">Top 10 High Volume Contributors</h3>
+          <p class="text-xs text-slate-400 mb-4">Total uploads created in Namespace 6 (File:)</p>
+          <div class="h-80">
+            <canvas id="chart-top-contributors"></canvas>
+          </div>
+        </div>
+
+        <!-- Regional Distribution Doughnut Chart -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">Upload Distribution by State / Region</h3>
+          <p class="text-xs text-slate-400 mb-4">Proportion of media tracked by origin</p>
+          <div class="h-80">
+            <canvas id="chart-state-distribution"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Historical Campaign Trend -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">National Campaign Upload Growth (2019 - 2024)</h3>
+        <p class="text-xs text-slate-400 mb-4">Annual media uploads for Wiki Loves Monuments, Earth, and Folklore in India</p>
+        <div class="h-80">
+          <canvas id="chart-campaigns-trend"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL: CONTRIBUTOR DEEP DIVE INSPECTOR -->
+  <div id="contributor-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="modal-content bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative my-8">
+      
+      <!-- Close button -->
+      <button id="modal-close-btn" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="flex items-start gap-4 mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <img id="modal-avatar" src="assets/logo.svg" alt="Avatar" class="w-16 h-16 rounded-2xl object-cover border-2 border-primary/20 shadow-sm" />
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 id="modal-username" class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Username</h3>
+            <a id="modal-commons-link" href="#" target="_blank" rel="noopener" class="text-slate-400 hover:text-primary" title="Open user page on Wikimedia Commons">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <p id="modal-realname" class="text-sm text-slate-500 dark:text-slate-400">Real Name</p>
+          <div id="modal-groups" class="flex flex-wrap gap-1.5 mt-2">
+            <!-- User rights badges -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl text-center">
+          <span class="text-xs text-slate-400 block font-medium">Uploaded Files</span>
+          <span id="modal-uploads-count" class="text-xl font-black text-primary dark:text-sky-400">...</span>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl text-center">
+          <span class="text-xs text-slate-400 block font-medium">Total Edits</span>
+          <span id="modal-edit-count" class="text-xl font-black text-slate-800 dark:text-slate-200">...</span>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl text-center">
+          <span class="text-xs text-slate-400 block font-medium">Joined Commons</span>
+          <span id="modal-registration-date" class="text-base font-bold text-slate-700 dark:text-slate-300">...</span>
+        </div>
+      </div>
+
+      <!-- File Types Breakdown & Live Gallery -->
+      <div class="mb-6">
+        <h4 class="text-sm font-bold text-slate-900 dark:text-white mb-2 flex items-center justify-between">
+          <span>Live Recent Uploads</span>
+          <span class="text-xs text-slate-400 font-normal">Fetched directly from Wikimedia API</span>
+        </h4>
+
+        <!-- Gallery Loader -->
+        <div id="modal-gallery-loader" class="text-center py-8">
+          <div class="inline-block animate-spin rounded-full h-6 w-6 border-3 border-primary border-t-transparent mb-2"></div>
+          <p class="text-xs text-slate-400">Retrieving recent uploads...</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="modal-gallery-container" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- File formats chart in modal -->
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+        <span class="text-xs font-semibold text-slate-400 block mb-2">Format Breakdown (Commons Averages)</span>
+        <div class="h-28">
+          <canvas id="modal-user-format-chart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-lg border text-sm font-medium transition-all duration-300 transform translate-y-12 opacity-0 pointer-events-none">
+    <i data-lucide="info" class="w-4 h-4"></i>
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 py-8 text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-semibold text-slate-700 dark:text-slate-300">CommonsPulse — Wikimedia Commons Metrics</p>
+        <p class="mt-1">Data served from the <a href="https://commons.wikimedia.org/w/api.php" target="_blank" rel="noopener" class="underline hover:text-primary">Wikimedia Commons Action API</a> and <a href="https://xtools.wmcloud.org" target="_blank" rel="noopener" class="underline hover:text-primary">XTools</a>.</p>
+      </div>
+      <div>
+        <p>Text content under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" class="underline hover:text-primary">CC-BY-SA 4.0</a>. Media files copyright their respective Wikimedia Commons contributors.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

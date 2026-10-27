@@ -1,0 +1,61 @@
+[
+  {
+    "username": "Fæ",
+    "country": "United Kingdom",
+    "uploads": 2520000,
+    "editCount": 3120000,
+    "primaryThemes": ["GLAM Archives", "Historical Public Domain Collections", "Library of Congress"],
+    "groups": ["filemover"]
+  },
+  {
+    "username": "Mbzt",
+    "country": "France",
+    "uploads": 182000,
+    "editCount": 240000,
+    "primaryThemes": ["French Municipalities", "Churches", "Monuments"],
+    "groups": ["autopatrolled"]
+  },
+  {
+    "username": "A.Savin",
+    "country": "Germany / International",
+    "uploads": 145000,
+    "editCount": 210000,
+    "primaryThemes": ["International Travel Photography", "Quality Images (QI)", "Transport"],
+    "groups": ["autopatrolled", "filemover"]
+  },
+  {
+    "username": "High Contrast",
+    "country": "Germany",
+    "uploads": 118000,
+    "editCount": 165000,
+    "primaryThemes": ["Architecture", "Castles", "Quality Images"],
+    "groups": ["autopatrolled"]
+  },
+  {
+    "username": "Gangulybiswarup",
+    "country": "India 🇮🇳",
+    "uploads": 64707,
+    "editCount": 98365,
+    "primaryThemes": ["Indian Heritage", "Monuments", "Museums", "Kolkata"],
+    "groups": ["autopatrolled", "filemover"],
+    "isIndianTop": true
+  },
+  {
+    "username": "Pinakpani",
+    "country": "India 🇮🇳",
+    "uploads": 31048,
+    "editCount": 72410,
+    "primaryThemes": ["Terracotta Temples", "Rural Bengal", "Archaeology"],
+    "groups": ["autopatrolled"],
+    "isIndianTop": true
+  },
+  {
+    "username": "Sumita Roy Dutta",
+    "country": "India 🇮🇳",
+    "uploads": 22379,
+    "editCount": 35251,
+    "primaryThemes": ["Kolkata Heritage", "Ghats", "Terracotta Architecture"],
+    "groups": ["autopatrolled", "filemover"],
+    "isIndianTop": true
+  }
+]

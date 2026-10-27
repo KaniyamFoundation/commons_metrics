@@ -1,0 +1,119 @@
+[
+  {
+    "id": "wlm-india",
+    "name": "Wiki Loves Monuments (India)",
+    "description": "Annual international photographic competition celebrating cultural heritage monuments, ASI protected sites, and state-protected architecture across India.",
+    "category": "Images from Wiki Loves Monuments in India",
+    "yearsActive": "2012 - Present",
+    "totalUploads": 84500,
+    "uniqueUploaders": 4210,
+    "topThemes": ["ASI Protected Monuments", "Mughal Architecture", "Dravidian Temples", "Colonial Heritage", "Forts of Rajasthan"],
+    "leadOrganizers": ["Indian Wikimedians User Group", "West Bengal Wikimedians", "CIS-A2K"],
+    "yearlyBreakdown": [
+      { "year": 2018, "uploads": 6800, "uploaders": 420 },
+      { "year": 2019, "uploads": 7450, "uploaders": 510 },
+      { "year": 2020, "uploads": 6120, "uploaders": 380 },
+      { "year": 2021, "uploads": 7890, "uploaders": 460 },
+      { "year": 2022, "uploads": 9230, "uploaders": 580 },
+      { "year": 2023, "uploads": 11400, "uploaders": 710 },
+      { "year": 2024, "uploads": 12850, "uploaders": 820 }
+    ],
+    "sampleFiles": [
+      "Victoria_Memorial_Hall_Kolkata_Night_View.jpg",
+      "Belur_Chennakeshava_Temple_Intricate_Reliefs.jpg",
+      "Gurdwara_Nanaksar_Sahib_in_Punjab.jpg"
+    ]
+  },
+  {
+    "id": "wle-india",
+    "name": "Wiki Loves Earth (India)",
+    "description": "Photographic competition focusing on national parks, wildlife sanctuaries, biodiversity hotspots, and protected natural reserves in India.",
+    "category": "Images from Wiki Loves Earth in India",
+    "yearsActive": "2014 - Present",
+    "totalUploads": 42100,
+    "uniqueUploaders": 2840,
+    "topThemes": ["Western Ghats", "Himalayan National Parks", "Tiger Reserves", "Avifauna & Endangered Species", "Coral Reefs"],
+    "leadOrganizers": ["Indian Wikimedians User Group", "CIS-A2K"],
+    "yearlyBreakdown": [
+      { "year": 2019, "uploads": 4200, "uploaders": 310 },
+      { "year": 2020, "uploads": 3850, "uploaders": 290 },
+      { "year": 2021, "uploads": 4900, "uploaders": 360 },
+      { "year": 2022, "uploads": 5600, "uploaders": 410 },
+      { "year": 2023, "uploads": 6400, "uploaders": 490 },
+      { "year": 2024, "uploads": 7100, "uploaders": 540 }
+    ],
+    "sampleFiles": [
+      "Leopard_in_Nagarhole_National_Park.jpg",
+      "Malabar_Grey_Hornbill_in_Thattekad.jpg",
+      "Burmagomphus_cauvericus_from_Arivikuthu.jpg"
+    ]
+  },
+  {
+    "id": "wlf-india",
+    "name": "Wiki Loves Folklore (India)",
+    "description": "Documenting folk traditions, regional festivals, performing arts, handloom crafts, traditional cuisines, and indigenous rituals across India.",
+    "category": "Images from Wiki Loves Folklore in India",
+    "yearsActive": "2019 - Present",
+    "totalUploads": 29800,
+    "uniqueUploaders": 1950,
+    "topThemes": ["Theyyam Rituals", "Durga Puja & Chhau Dance", "Thrissur Pooram", "Rural Handloom", "Folk Musical Instruments"],
+    "leadOrganizers": ["Wiki Loves Folklore International Team", "Indian Communities"],
+    "yearlyBreakdown": [
+      { "year": 2020, "uploads": 2400, "uploaders": 180 },
+      { "year": 2021, "uploads": 3900, "uploaders": 290 },
+      { "year": 2022, "uploads": 5200, "uploaders": 380 },
+      { "year": 2023, "uploads": 7800, "uploaders": 510 },
+      { "year": 2024, "uploads": 8600, "uploaders": 590 }
+    ],
+    "sampleFiles": [
+      "Theyyam_Performance_in_Kannur.jpg",
+      "Thrissur_Pooram_Elephant_Procession.jpg"
+    ]
+  },
+  {
+    "id": "wiki-explores",
+    "name": "Wiki Explores Series (West Bengal & Beyond)",
+    "description": "Structured weekend and multi-day photography expeditions documenting lesser-known rural heritage, village terracotta temples, and folk arts in remote districts.",
+    "category": "Images from Wiki Explores",
+    "yearsActive": "2016 - Present",
+    "totalUploads": 18500,
+    "uniqueUploaders": 120,
+    "topThemes": ["Bankura Terracotta", "Hooghly Riverfront", "Nadia Temples", "Purulia Jain Heritage", "Birbhum Temples"],
+    "leadOrganizers": ["West Bengal Wikimedians User Group"],
+    "yearlyBreakdown": [
+      { "year": 2018, "uploads": 1900, "uploaders": 25 },
+      { "year": 2019, "uploads": 2600, "uploaders": 30 },
+      { "year": 2020, "uploads": 1100, "uploaders": 15 },
+      { "year": 2021, "uploads": 2200, "uploaders": 28 },
+      { "year": 2022, "uploads": 3400, "uploaders": 35 },
+      { "year": 2023, "uploads": 3900, "uploaders": 42 },
+      { "year": 2024, "uploads": 3400, "uploaders": 40 }
+    ],
+    "sampleFiles": [
+      "Kulia_Pat_Temple_at_Kulia,_Kalyani,_Nadia_14.jpg",
+      "Interiors_of_Aloobari_monastery_near_Darjeeling.jpg"
+    ]
+  },
+  {
+    "id": "glam-india",
+    "name": "GLAM India (Galleries, Libraries, Archives & Museums)",
+    "description": "Institutional collaborations releasing digitized manuscripts, rare historical books, miniature paintings, and archival artifacts under free licenses.",
+    "category": "GLAM in India",
+    "yearsActive": "2014 - Present",
+    "totalUploads": 38200,
+    "uniqueUploaders": 95,
+    "topThemes": ["Rare Palm-leaf Manuscripts", "Colonial Cartography", "Miniature Paintings", "Sanskrit Texts", "Government Archives"],
+    "leadOrganizers": ["National Museum New Delhi", "West Bengal State Archives", "CIS-A2K", "Wikisource India"],
+    "yearlyBreakdown": [
+      { "year": 2019, "uploads": 3100, "uploaders": 12 },
+      { "year": 2020, "uploads": 5400, "uploaders": 18 },
+      { "year": 2021, "uploads": 7200, "uploaders": 22 },
+      { "year": 2022, "uploads": 8500, "uploaders": 24 },
+      { "year": 2023, "uploads": 6900, "uploaders": 20 },
+      { "year": 2024, "uploads": 7100, "uploaders": 25 }
+    ],
+    "sampleFiles": [
+      "Bangadarshan_Vol_7.pdf"
+    ]
+  }
+]

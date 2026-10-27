@@ -1,0 +1,44 @@
+[
+  {
+    "id": "wlm-2023-in",
+    "name": "Wiki Loves Monuments 2023 in India",
+    "category": "Images from Wiki Loves Monuments 2023 in India",
+    "description": "Photographs of protected monuments and historical sites from the 2023 national campaign.",
+    "badge": "Monuments"
+  },
+  {
+    "id": "wle-2024-in",
+    "name": "Wiki Loves Earth 2024 in India",
+    "category": "Images from Wiki Loves Earth 2024 in India",
+    "description": "Natural heritage, flora, fauna, and national parks uploaded in 2024.",
+    "badge": "Nature"
+  },
+  {
+    "id": "wlf-2024-in",
+    "name": "Wiki Loves Folklore 2024 in India",
+    "category": "Images from Wiki Loves Folklore 2024 in India",
+    "description": "Folk traditions, dances, rituals, festivals, and cultural events.",
+    "badge": "Folklore"
+  },
+  {
+    "id": "qi-india",
+    "name": "Quality Images of India by User",
+    "category": "Quality images of India by user",
+    "description": "Subcategories of verified technical excellence images taken in India.",
+    "badge": "Quality Images"
+  },
+  {
+    "id": "wb-temples",
+    "name": "Terracotta Temples of West Bengal",
+    "category": "Terracotta temples in West Bengal",
+    "description": "Richly ornamented terracotta brick temples of Bengal.",
+    "badge": "Architecture"
+  },
+  {
+    "id": "hoysala-arch",
+    "name": "Hoysala Architecture in Karnataka",
+    "category": "Hoysala architecture",
+    "description": "Intricately carved soapstone star-shaped temples of Karnataka.",
+    "badge": "Heritage"
+  }
+]
