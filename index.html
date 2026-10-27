@@ -133,6 +133,10 @@
 
         <!-- Quick actions -->
         <div class="flex flex-wrap items-center gap-2.5">
+          <button id="add-contributor-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-primary hover:bg-primary-dark text-white shadow-sm transition-colors">
+            <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+            <span>Add / Verify Contributor</span>
+          </button>
           <button id="export-csv-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 text-slate-700 dark:text-slate-200 shadow-sm transition-colors">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
             <span>Export CSV</span>
@@ -233,9 +237,13 @@
             <span>State:</span>
             <select id="state-filter" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
               <option value="all">All India (All States)</option>
+              <option value="Tamil Nadu">Tamil Nadu (Yercaud, Salem, etc.)</option>
               <option value="West Bengal">West Bengal</option>
               <option value="Kerala">Kerala</option>
               <option value="Karnataka">Karnataka</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Odisha">Odisha</option>
               <option value="Punjab">Punjab</option>
               <option value="Andhra Pradesh / Telangana">Andhra / Telangana</option>
               <option value="Maharashtra / Rajasthan">Maharashtra / Rajasthan</option>
@@ -531,6 +539,54 @@
     </section>
 
   </main>
+
+  <!-- MODAL: ADD / VERIFY CONTRIBUTOR LIVE -->
+  <div id="add-contributor-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+      <button id="add-modal-close-btn" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary dark:text-sky-400 flex items-center justify-center">
+          <i data-lucide="user-plus" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Add / Verify Contributor</h3>
+          <p class="text-xs text-slate-500">Query live metrics directly from Wikimedia Commons</p>
+        </div>
+      </div>
+
+      <form id="add-contributor-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Wikimedia Commons Username</label>
+          <input type="text" id="add-username-input" placeholder="e.g. Yercaud-elango, Info-farmer, Suyash.dwivedi" required class="w-full px-3.5 py-2 text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/40">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">State / Region in India</label>
+          <select id="add-state-input" class="w-full px-3.5 py-2 text-sm rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none">
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Maharashtra / Rajasthan">Maharashtra / Rajasthan</option>
+            <option value="Andhra Pradesh / Telangana">Andhra Pradesh / Telangana</option>
+            <option value="India">Other / Pan-India</option>
+          </select>
+        </div>
+
+        <button type="submit" id="add-submit-btn" class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Fetch Live &amp; Add to Leaderboard</span>
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- MODAL: CONTRIBUTOR DEEP DIVE INSPECTOR -->
   <div id="contributor-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">

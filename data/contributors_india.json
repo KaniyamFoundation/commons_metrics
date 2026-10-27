@@ -9,12 +9,26 @@
     "state": "West Bengal",
     "city": "Kolkata",
     "region": "Eastern India",
-    "groups": ["autopatrolled", "filemover"],
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
     "qualityImages": 145,
     "valuedImages": 42,
     "featuredPictures": 6,
-    "primaryThemes": ["Historical Architecture", "Pan-India Heritage", "Museums", "Cultural Events", "Archaeology"],
-    "campaigns": ["Wiki Loves Monuments", "Wiki Loves Earth", "Wiki Explores", "WikiConference India"],
+    "primaryThemes": [
+      "Historical Architecture",
+      "Pan-India Heritage",
+      "Museums",
+      "Cultural Events",
+      "Archaeology"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Wiki Loves Earth",
+      "Wiki Explores",
+      "WikiConference India"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 385.4,
     "recentUploads": [
@@ -36,6 +50,39 @@
     "notableContributions": "Prolific documentation of colonial Kolkata, Andaman and Nicobar Islands, Indian museums, and pan-India heritage monuments."
   },
   {
+    "username": "Netha Hussain",
+    "realName": "Dr. Netha Hussain",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Netha_Hussain_at_Wikimania_2023.jpg/320px-Netha_Hussain_at_Wikimania_2023.jpg",
+    "uploads": 38184,
+    "editCount": 75370,
+    "registration": "2010-06-25",
+    "state": "Kerala",
+    "city": "Kozhikode",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 180,
+    "valuedImages": 45,
+    "featuredPictures": 6,
+    "primaryThemes": [
+      "Medical Illustrations",
+      "COVID-19 Infographics",
+      "Healthcare Infographics",
+      "Kerala Culture",
+      "Women in Science"
+    ],
+    "campaigns": [
+      "WikiProject Medicine",
+      "Wiki Loves Earth",
+      "Wiki Loves Folklore"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 185.2,
+    "notableContributions": "Physician and researcher; produced tens of thousands of open-access medical, anatomical, and healthcare graphics used globally across Wikipedia."
+  },
+  {
     "username": "Pinakpani",
     "realName": "Pinakpani",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kulia_Pat_Temple_at_Kulia%2C_Kalyani%2C_Nadia_14.jpg/320px-Kulia_Pat_Temple_at_Kulia%2C_Kalyani%2C_Nadia_14.jpg",
@@ -45,12 +92,23 @@
     "state": "West Bengal",
     "city": "Kolkata",
     "region": "Eastern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 94,
     "valuedImages": 28,
     "featuredPictures": 2,
-    "primaryThemes": ["Terracotta Temples", "Rural Bengal", "Archaeological Sites", "Nadia & Hooghly Heritage"],
-    "campaigns": ["Wiki Explores Nadia", "Wiki Explores Birbhum", "Wiki Loves Monuments"],
+    "primaryThemes": [
+      "Terracotta Temples",
+      "Rural Bengal",
+      "Archaeological Sites",
+      "Nadia & Hooghly Heritage"
+    ],
+    "campaigns": [
+      "Wiki Explores Nadia",
+      "Wiki Explores Birbhum",
+      "Wiki Loves Monuments"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 192.6,
     "recentUploads": [
@@ -65,11 +123,43 @@
         "title": "Kulia Pat Temple at Kulia, Kalyani, Nadia 13",
         "fileName": "Kulia_Pat_Temple_at_Kulia,_Kalyani,_Nadia_13.jpg",
         "timestamp": "2026-10-27",
-        "sizeMB": 5.10,
+        "sizeMB": 5.1,
         "mime": "image/jpeg"
       }
     ],
     "notableContributions": "Extensive photographic documentation of Bengal temple architecture, terracotta motifs, and rural heritage structures across West Bengal districts."
+  },
+  {
+    "username": "Yercaud-elango",
+    "realName": "Yercaud Elango",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/V.O.C_Statue-2-near_bharathi_park-pondicherry-India.jpg/320px-V.O.C_Statue-2-near_bharathi_park-pondicherry-India.jpg",
+    "uploads": 26190,
+    "editCount": 36477,
+    "registration": "2014-11-22",
+    "state": "Tamil Nadu",
+    "city": "Yercaud, Salem",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 110,
+    "valuedImages": 38,
+    "featuredPictures": 3,
+    "primaryThemes": [
+      "Botany & Plant Taxonomy",
+      "Salem District Heritage",
+      "Tamil Nadu Flora",
+      "Yercaud Hills",
+      "Historical Statues"
+    ],
+    "campaigns": [
+      "Tamil Nadu Science Forum",
+      "Wiki Loves Monuments",
+      "Tamil Wikipedia Education"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 148.5,
+    "notableContributions": "Prolific science author and environmentalist; cataloged over 650 botanical species with scientific Tamil taxonomy, plus thousands of Salem and Pondicherry heritage photos."
   },
   {
     "username": "Sumita Roy Dutta",
@@ -81,12 +171,25 @@
     "state": "West Bengal",
     "city": "Kolkata",
     "region": "Eastern India",
-    "groups": ["autopatrolled", "filemover"],
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
     "qualityImages": 128,
     "valuedImages": 35,
     "featuredPictures": 4,
-    "primaryThemes": ["Kolkata Heritage", "Historic Ghats", "Terracotta Monuments", "Current Events & Protests", "Street Architecture"],
-    "campaigns": ["Wiki Loves Monuments", "Wiki Explores Hooghly", "Wiki Loves Folklore"],
+    "primaryThemes": [
+      "Kolkata Heritage",
+      "Historic Ghats",
+      "Terracotta Monuments",
+      "Current Events & Protests",
+      "Street Architecture"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Wiki Explores Hooghly",
+      "Wiki Loves Folklore"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 165.2,
     "recentUploads": [
@@ -110,12 +213,25 @@
     "state": "Kerala",
     "city": "Kozhikode",
     "region": "Southern India",
-    "groups": ["autopatrolled", "filemover"],
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
     "qualityImages": 210,
     "valuedImages": 65,
     "featuredPictures": 8,
-    "primaryThemes": ["Flora & Fauna", "Insects & Macro", "Botanical Diversity", "Kerala Landscapes", "Temples"],
-    "campaigns": ["Wiki Loves Earth", "Wiki Loves Monuments Kerala", "Kerala Biodiversity"],
+    "primaryThemes": [
+      "Flora & Fauna",
+      "Insects & Macro",
+      "Botanical Diversity",
+      "Kerala Landscapes",
+      "Temples"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Wiki Loves Monuments Kerala",
+      "Kerala Biodiversity"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 98.4,
     "recentUploads": [
@@ -139,12 +255,30 @@
     "state": "West Bengal",
     "city": "Kolkata",
     "region": "Eastern India",
-    "groups": ["filemover", "patroller", "rollbacker", "templateeditor", "translationadmin", "upwizcampeditors"],
+    "groups": [
+      "filemover",
+      "patroller",
+      "rollbacker",
+      "templateeditor",
+      "translationadmin",
+      "upwizcampeditors"
+    ],
     "qualityImages": 88,
     "valuedImages": 24,
     "featuredPictures": 3,
-    "primaryThemes": ["Bengali Digitized Manuscripts", "GLAM Institutional Archives", "Cultural Events", "Wiki Explores", "Festivals"],
-    "campaigns": ["GLAM West Bengal", "Wiki Explores", "Wiki Loves Folklore", "WikiSource Digitization"],
+    "primaryThemes": [
+      "Bengali Digitized Manuscripts",
+      "GLAM Institutional Archives",
+      "Cultural Events",
+      "Wiki Explores",
+      "Festivals"
+    ],
+    "campaigns": [
+      "GLAM West Bengal",
+      "Wiki Explores",
+      "Wiki Loves Folklore",
+      "WikiSource Digitization"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 540.2,
     "recentUploads": [
@@ -168,12 +302,25 @@
     "state": "West Bengal",
     "city": "Chandannagar",
     "region": "Eastern India",
-    "groups": ["autopatrolled", "filemover"],
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
     "qualityImages": 160,
     "valuedImages": 45,
     "featuredPictures": 5,
-    "primaryThemes": ["Terracotta Temples", "Hooghly Heritage", "French Colonial Architecture", "Himalayan Monasteries", "Murals"],
-    "campaigns": ["Wiki Loves Monuments", "Wiki Explores Hooghly", "Wiki Loves Earth"],
+    "primaryThemes": [
+      "Terracotta Temples",
+      "Hooghly Heritage",
+      "French Colonial Architecture",
+      "Himalayan Monasteries",
+      "Murals"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Wiki Explores Hooghly",
+      "Wiki Loves Earth"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 142.8,
     "recentUploads": [
@@ -197,12 +344,26 @@
     "state": "Kerala",
     "city": "Kadavoor, Ernakulam",
     "region": "Southern India",
-    "groups": ["filemover", "image-reviewer", "rollbacker"],
+    "groups": [
+      "filemover",
+      "image-reviewer",
+      "rollbacker"
+    ],
     "qualityImages": 1180,
     "valuedImages": 320,
     "featuredPictures": 22,
-    "primaryThemes": ["Dragonflies & Damselflies (Odonata)", "Macro Entomology", "Kerala Biodiversity", "Orchids & Flora", "Spiders"],
-    "campaigns": ["Wiki Loves Earth", "Odonata of India", "Quality Image Candidates (Reviewer)"],
+    "primaryThemes": [
+      "Dragonflies & Damselflies (Odonata)",
+      "Macro Entomology",
+      "Kerala Biodiversity",
+      "Orchids & Flora",
+      "Spiders"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Odonata of India",
+      "Quality Image Candidates (Reviewer)"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 78.5,
     "recentUploads": [
@@ -217,6 +378,134 @@
     "notableContributions": "Highest number of Quality Images among Indian Wikimedians (1,180+ QI). Recognized globally for taxonomy-grade macro photography of Indian Odonata and insects."
   },
   {
+    "username": "Ranjithsiji",
+    "realName": "Ranjith Siji",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Ranjithsiji_at_WikiConference_India.jpg/320px-Ranjithsiji_at_WikiConference_India.jpg",
+    "uploads": 7940,
+    "editCount": 97556,
+    "registration": "2010-03-24",
+    "state": "Kerala",
+    "city": "Kozhikode",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 165,
+    "valuedImages": 50,
+    "featuredPictures": 5,
+    "primaryThemes": [
+      "Western Ghats Flora",
+      "Malayalam Digitization",
+      "Insect Biodiversity",
+      "Kerala Rural Heritage"
+    ],
+    "campaigns": [
+      "Malayalam Wikisource",
+      "Wiki Loves Earth",
+      "Wiki Loves Folklore"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 68.4,
+    "notableContributions": "Active open-source advocate and documenter of Western Ghats flora and Malayalam digital archives."
+  },
+  {
+    "username": "Suyash.dwivedi",
+    "realName": "Suyash Dwivedi",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Uday_Dongre_-_Shreya_Dwivedi_-_Suyash_Dwivedi_-_WikiConference_India_2026_-_Kochi_2026-09-06_05412C.jpg/320px-Uday_Dongre_-_Shreya_Dwivedi_-_Suyash_Dwivedi_-_WikiConference_India_2026_-_Kochi_2026-09-06_05412C.jpg",
+    "uploads": 7829,
+    "editCount": 14800,
+    "registration": "2013-08-05",
+    "state": "Madhya Pradesh",
+    "city": "Bhopal / Gwalior",
+    "region": "Central India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 175,
+    "valuedImages": 42,
+    "featuredPictures": 4,
+    "primaryThemes": [
+      "Khajuraho Temples",
+      "Gwalior Fort",
+      "ASI Central India Monuments",
+      "Chhatarpur Heritage",
+      "Nature"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Hindi WikiProjects",
+      "Wiki Loves Earth"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 58.2,
+    "notableContributions": "Leading contributor and organizer from Central India; extensive documentation of Bundelkhand temples, stepwells, and UNESCO World Heritage sites."
+  },
+  {
+    "username": "Info-farmer",
+    "realName": "Info-farmer",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tamil_Wikipedia_10th_Anniversary.jpg/320px-Tamil_Wikipedia_10th_Anniversary.jpg",
+    "uploads": 5769,
+    "editCount": 87566,
+    "registration": "2008-09-16",
+    "state": "Tamil Nadu",
+    "city": "Salem",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 82,
+    "valuedImages": 25,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Agricultural Botany",
+      "Rural Tamil Nadu",
+      "Medicinal Plants",
+      "Tamil Manuscript Heritage"
+    ],
+    "campaigns": [
+      "Tamil Wikisource",
+      "Wiki Loves Earth Tamil Nadu",
+      "Village Heritage Projects"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 42.1,
+    "notableContributions": "Veteran Tamil Wikimedian with over 87,000 edits; focused on Tamil agricultural heritage, rural flora, and rare open educational resources."
+  },
+  {
+    "username": "Yakshitha",
+    "realName": "Yakshitha",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Moodabidri_Thousand_Pillars_Jain_Basadi.jpg/320px-Moodabidri_Thousand_Pillars_Jain_Basadi.jpg",
+    "uploads": 5602,
+    "editCount": 10985,
+    "registration": "2018-09-12",
+    "state": "Karnataka",
+    "city": "Mangaluru / Udupi",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 95,
+    "valuedImages": 28,
+    "featuredPictures": 3,
+    "primaryThemes": [
+      "Yakshagana Theatre",
+      "Tulu Culture",
+      "Coastal Karnataka Temples",
+      "Folk Art Traditions"
+    ],
+    "campaigns": [
+      "Tulu Wikipedia Project",
+      "Wiki Loves Folklore",
+      "Wiki Loves Earth"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 44.5,
+    "notableContributions": "Major contributor of Coastal Karnataka indigenous culture, coastal temple festivals, and Yakshagana folk theatre documentation."
+  },
+  {
     "username": "I.Mahesh",
     "realName": "I. Mahesh",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Aerial_view_of_Bhimavaram_Shiva_temple%27s_Galigopuram.jpg/320px-Aerial_view_of_Bhimavaram_Shiva_temple%27s_Galigopuram.jpg",
@@ -226,12 +515,26 @@
     "state": "Andhra Pradesh / Telangana",
     "city": "Bhimavaram",
     "region": "Southern India",
-    "groups": ["autopatrolled", "filemover", "upwizcampeditors"],
+    "groups": [
+      "autopatrolled",
+      "filemover",
+      "upwizcampeditors"
+    ],
     "qualityImages": 412,
     "valuedImages": 85,
     "featuredPictures": 7,
-    "primaryThemes": ["South Indian Temples", "Dravidian Architecture", "Temple Sculptures", "Aerial Drone Heritage", "Monuments"],
-    "campaigns": ["Wiki Loves Monuments India", "Wiki Loves Earth", "UpWiz Campaigns"],
+    "primaryThemes": [
+      "South Indian Temples",
+      "Dravidian Architecture",
+      "Temple Sculptures",
+      "Aerial Drone Heritage",
+      "Monuments"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Wiki Loves Earth",
+      "UpWiz Campaigns"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 82.1,
     "recentUploads": [
@@ -246,6 +549,101 @@
     "notableContributions": "Exceptional high-resolution temple surveys across Andhra Pradesh, Telangana and Tamil Nadu; over 400 verified Quality Images."
   },
   {
+    "username": "Thamizhpparithi Maari",
+    "realName": "Thamizhpparithi Maari",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Brihadisvara_Temple_Thanjavur_Gopuram.jpg/320px-Brihadisvara_Temple_Thanjavur_Gopuram.jpg",
+    "uploads": 4874,
+    "editCount": 7428,
+    "registration": "2011-11-29",
+    "state": "Tamil Nadu",
+    "city": "Chennai / Thanjavur",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 120,
+    "valuedImages": 34,
+    "featuredPictures": 4,
+    "primaryThemes": [
+      "Dravidian Temple Architecture",
+      "Tamil Inscriptions & Epigraphy",
+      "Chola Architecture",
+      "University Archives"
+    ],
+    "campaigns": [
+      "Tamil Heritage Project",
+      "Wiki Loves Monuments Tamil Nadu"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 39.8,
+    "notableContributions": "Specialist in documenting Chola and Pallava temple complexes, Tamil epigraphy stone inscriptions, and historical monuments."
+  },
+  {
+    "username": "Nizil Shah",
+    "realName": "Nizil Shah",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Adalaj_Stepwell_Intricate_Carvings.jpg/320px-Adalaj_Stepwell_Intricate_Carvings.jpg",
+    "uploads": 4731,
+    "editCount": 27532,
+    "registration": "2011-04-18",
+    "state": "Gujarat",
+    "city": "Ahmedabad / Jamnagar",
+    "region": "Western India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 140,
+    "valuedImages": 42,
+    "featuredPictures": 5,
+    "primaryThemes": [
+      "Stepwells of Gujarat (Vav)",
+      "Saurashtra Temples",
+      "Jain Derasars",
+      "Gujarati Architecture",
+      "ASI Protected Sites"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments Gujarat",
+      "Wiki Loves Earth",
+      "Gujarati Wikipedia"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 36.4,
+    "notableContributions": "Exhaustive photographic surveying of subterranean stepwell architecture (Adalaj, Rani ki Vav, Modhera) and Saurashtra historic monuments."
+  },
+  {
+    "username": "Jnanaranjan sahu",
+    "realName": "Jnanaranjan Sahu",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Konark_Sun_Temple_Wheel.jpg/320px-Konark_Sun_Temple_Wheel.jpg",
+    "uploads": 4653,
+    "editCount": 10687,
+    "registration": "2011-10-19",
+    "state": "Odisha",
+    "city": "Bhubaneswar / Cuttack",
+    "region": "Eastern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 85,
+    "valuedImages": 24,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Kalinga Temple Architecture",
+      "Puri & Konark Heritage",
+      "Odia Festivals & Rath Yatra",
+      "Palm Leaf Manuscripts"
+    ],
+    "campaigns": [
+      "Odia Wikisource",
+      "Wiki Loves Monuments Odisha",
+      "Wiki Loves Folklore"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 34.6,
+    "notableContributions": "Key documenter of Odisha architectural heritage, ancient Kalinga sculptures, and coastal Odia traditions."
+  },
+  {
     "username": "Tagooty",
     "realName": "Tagooty",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Sea_Shell_Embedded_Coral_Rag_Zanzibar_Oct26_A7CR_15441-71_zsp.jpg/320px-Sea_Shell_Embedded_Coral_Rag_Zanzibar_Oct26_A7CR_15441-71_zsp.jpg",
@@ -255,12 +653,24 @@
     "state": "Karnataka",
     "city": "Bengaluru",
     "region": "Southern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 350,
     "valuedImages": 140,
     "featuredPictures": 9,
-    "primaryThemes": ["Urban Flora", "Botanical Macro", "Avenue Trees of Bangalore", "Geological Formations", "Heritage Parks"],
-    "campaigns": ["Wiki Loves Earth", "Trees of Bangalore", "Quality Images"],
+    "primaryThemes": [
+      "Urban Flora",
+      "Botanical Macro",
+      "Avenue Trees of Bangalore",
+      "Geological Formations",
+      "Heritage Parks"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Trees of Bangalore",
+      "Quality Images"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 94.6,
     "recentUploads": [
@@ -284,12 +694,23 @@
     "state": "West Bengal",
     "city": "Kolkata",
     "region": "Eastern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 285,
     "valuedImages": 52,
     "featuredPictures": 5,
-    "primaryThemes": ["Monuments of National Importance", "Colonial Kolkata", "ASI Monuments", "Night Photography", "Palaces"],
-    "campaigns": ["Wiki Loves Monuments India", "Wiki Explores Hooghly"],
+    "primaryThemes": [
+      "Monuments of National Importance",
+      "Colonial Kolkata",
+      "ASI Monuments",
+      "Night Photography",
+      "Palaces"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Wiki Explores Hooghly"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 45.8,
     "recentUploads": [
@@ -313,12 +734,26 @@
     "state": "Punjab",
     "city": "Mansa",
     "region": "Northern India",
-    "groups": ["autopatrolled", "filemover", "upwizcampeditors"],
+    "groups": [
+      "autopatrolled",
+      "filemover",
+      "upwizcampeditors"
+    ],
     "qualityImages": 120,
     "valuedImages": 32,
     "featuredPictures": 2,
-    "primaryThemes": ["Gurdwaras of Punjab", "Rural Punjab Architecture", "Sikh Heritage", "Agricultural Landscapes", "Traditional Implements"],
-    "campaigns": ["Wiki Loves Monuments Punjab", "Wiki Loves Folklore", "Punjabi Wikimedians"],
+    "primaryThemes": [
+      "Gurdwaras of Punjab",
+      "Rural Punjab Architecture",
+      "Sikh Heritage",
+      "Agricultural Landscapes",
+      "Traditional Implements"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments Punjab",
+      "Wiki Loves Folklore",
+      "Punjabi Wikimedians"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 38.2,
     "recentUploads": [
@@ -342,12 +777,26 @@
     "state": "Kerala",
     "city": "Kannur",
     "region": "Southern India",
-    "groups": ["filemover", "patroller", "rollbacker"],
+    "groups": [
+      "filemover",
+      "patroller",
+      "rollbacker"
+    ],
     "qualityImages": 95,
     "valuedImages": 38,
     "featuredPictures": 4,
-    "primaryThemes": ["Theyyam Folk Rituals", "Northern Kerala Culture", "Malayalam Heritage", "Endemic Flora", "Temples"],
-    "campaigns": ["Wiki Loves Folklore", "Wiki Loves Earth", "Malayalam WikiProjects"],
+    "primaryThemes": [
+      "Theyyam Folk Rituals",
+      "Northern Kerala Culture",
+      "Malayalam Heritage",
+      "Endemic Flora",
+      "Temples"
+    ],
+    "campaigns": [
+      "Wiki Loves Folklore",
+      "Wiki Loves Earth",
+      "Malayalam WikiProjects"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 32.7,
     "recentUploads": [
@@ -362,6 +811,36 @@
     "notableContributions": "Longstanding Malayalam community leader; exceptional documentation of sacred groves and northern Kerala ritualistic dance forms."
   },
   {
+    "username": "Balajijagadesh",
+    "realName": "Balaji Jagadesh",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Madurai_Meenakshi_Amman_Temple_Towers.jpg/320px-Madurai_Meenakshi_Amman_Temple_Towers.jpg",
+    "uploads": 2825,
+    "editCount": 5791,
+    "registration": "2010-01-15",
+    "state": "Tamil Nadu",
+    "city": "Coimbatore",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 68,
+    "valuedImages": 18,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Tamil Nadu Biodiversity",
+      "Western Ghats Foothills",
+      "Heritage Temples",
+      "Tamil Culture"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Wiki Loves Monuments Tamil Nadu"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 26.2,
+    "notableContributions": "Active participant and organizer in Tamil Wikimedia community with broad coverage of regional flora and historic shrines."
+  },
+  {
     "username": "Kiran Gopi",
     "realName": "Kiran Gopi",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Malabar_Grey_Hornbill_in_Thattekad.jpg/320px-Malabar_Grey_Hornbill_in_Thattekad.jpg",
@@ -371,12 +850,25 @@
     "state": "Kerala",
     "city": "Kochi",
     "region": "Southern India",
-    "groups": ["filemover", "image-reviewer", "rollbacker"],
+    "groups": [
+      "filemover",
+      "image-reviewer",
+      "rollbacker"
+    ],
     "qualityImages": 320,
     "valuedImages": 72,
     "featuredPictures": 7,
-    "primaryThemes": ["Avifauna (Birds of Western Ghats)", "Wildlife Conservation", "Butterflies", "Forest Sanctuaries"],
-    "campaigns": ["Wiki Loves Earth", "Western Ghats Biodiversity", "Quality Images"],
+    "primaryThemes": [
+      "Avifauna (Birds of Western Ghats)",
+      "Wildlife Conservation",
+      "Butterflies",
+      "Forest Sanctuaries"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Western Ghats Biodiversity",
+      "Quality Images"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 29.5,
     "recentUploads": [
@@ -400,12 +892,28 @@
     "state": "Kerala",
     "city": "Thrissur",
     "region": "Southern India",
-    "groups": ["autopatrolled", "event-organizer", "filemover", "upwizcampeditors"],
+    "groups": [
+      "autopatrolled",
+      "event-organizer",
+      "filemover",
+      "upwizcampeditors"
+    ],
     "qualityImages": 75,
     "valuedImages": 20,
     "featuredPictures": 3,
-    "primaryThemes": ["Festivals of Kerala", "Thrissur Pooram", "Cultural Traditions", "Wiki Loves Campaigns Organiser", "Nature"],
-    "campaigns": ["Wiki Loves Monuments", "Wiki Loves Earth", "Wiki Loves Folklore", "GLAM"],
+    "primaryThemes": [
+      "Festivals of Kerala",
+      "Thrissur Pooram",
+      "Cultural Traditions",
+      "Wiki Loves Campaigns Organiser",
+      "Nature"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Wiki Loves Earth",
+      "Wiki Loves Folklore",
+      "GLAM"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 35.1,
     "recentUploads": [
@@ -429,12 +937,23 @@
     "state": "Karnataka",
     "city": "Mangaluru / Bengaluru",
     "region": "Southern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 48,
     "valuedImages": 15,
     "featuredPictures": 2,
-    "primaryThemes": ["Coastal Karnataka Heritage", "Jain Basadis of Moodabidri", "Tulu Culture", "Western Ghats", "Monuments"],
-    "campaigns": ["Wiki Loves Monuments Karnataka", "Kannada & Tulu WikiProjects"],
+    "primaryThemes": [
+      "Coastal Karnataka Heritage",
+      "Jain Basadis of Moodabidri",
+      "Tulu Culture",
+      "Western Ghats",
+      "Monuments"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments Karnataka",
+      "Kannada & Tulu WikiProjects"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 24.3,
     "recentUploads": [
@@ -458,12 +977,24 @@
     "state": "Punjab",
     "city": "Patiala",
     "region": "Northern India",
-    "groups": ["sysop"],
+    "groups": [
+      "sysop"
+    ],
     "qualityImages": 65,
     "valuedImages": 22,
     "featuredPictures": 3,
-    "primaryThemes": ["Historical Gurdwaras", "Punjabi Manuscripts", "GLAM Punjab", "Rural Life", "Heritage Gates of Patiala"],
-    "campaigns": ["GLAM Punjab", "Wiki Loves Monuments", "Punjabi Wikisource"],
+    "primaryThemes": [
+      "Historical Gurdwaras",
+      "Punjabi Manuscripts",
+      "GLAM Punjab",
+      "Rural Life",
+      "Heritage Gates of Patiala"
+    ],
+    "campaigns": [
+      "GLAM Punjab",
+      "Wiki Loves Monuments",
+      "Punjabi Wikisource"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 48.6,
     "recentUploads": [
@@ -478,6 +1009,35 @@
     "notableContributions": "Commons Administrator (Sysop); spearheaded Punjab institutional partnerships and digitization of rare Panjabi literature."
   },
   {
+    "username": "Dev Jadiya",
+    "realName": "Dev Jadiya",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Sun_Temple_Modhera_Sabhamandapa.jpg/320px-Sun_Temple_Modhera_Sabhamandapa.jpg",
+    "uploads": 1850,
+    "editCount": 9897,
+    "registration": "2019-08-02",
+    "state": "Gujarat",
+    "city": "Surat / Rajkot",
+    "region": "Western India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 62,
+    "valuedImages": 16,
+    "featuredPictures": 1,
+    "primaryThemes": [
+      "Gujarat Historical Monuments",
+      "Solanki Architecture",
+      "Craft Traditions"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Gujarati Wikimedians"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 18.2,
+    "notableContributions": "Architectural detail documentation of Western Indian heritage structures."
+  },
+  {
     "username": "Dineshkannambadi",
     "realName": "Dinesh Kannambadi",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Belur_Chennakeshava_Temple_Intricate_Reliefs.jpg/320px-Belur_Chennakeshava_Temple_Intricate_Reliefs.jpg",
@@ -487,12 +1047,23 @@
     "state": "Karnataka",
     "city": "Mysuru / Bengaluru",
     "region": "Southern India",
-    "groups": ["autopatrolled", "filemover"],
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
     "qualityImages": 310,
     "valuedImages": 95,
     "featuredPictures": 14,
-    "primaryThemes": ["Hoysala Architecture", "Chalukya & Vijayanagara Sculptures", "Belur & Halebidu", "ASI Monuments"],
-    "campaigns": ["Wiki Loves Monuments", "Hoysala Heritage Project"],
+    "primaryThemes": [
+      "Hoysala Architecture",
+      "Chalukya & Vijayanagara Sculptures",
+      "Belur & Halebidu",
+      "ASI Monuments"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Hoysala Heritage Project"
+    ],
     "dominantLicense": "CC-BY-SA 3.0",
     "estStorageGB": 21.4,
     "recentUploads": [
@@ -516,12 +1087,23 @@
     "state": "West Bengal",
     "city": "Bankura",
     "region": "Eastern India",
-    "groups": ["filemover", "patroller"],
+    "groups": [
+      "filemover",
+      "patroller"
+    ],
     "qualityImages": 52,
     "valuedImages": 16,
     "featuredPictures": 1,
-    "primaryThemes": ["Bankura Terracotta", "Laterite Stone Temples", "Folklore & Rural Crafts", "Archaeological Sites"],
-    "campaigns": ["Wiki Explores Bankura", "Wiki Loves Monuments"],
+    "primaryThemes": [
+      "Bankura Terracotta",
+      "Laterite Stone Temples",
+      "Folklore & Rural Crafts",
+      "Archaeological Sites"
+    ],
+    "campaigns": [
+      "Wiki Explores Bankura",
+      "Wiki Loves Monuments"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 18.9,
     "recentUploads": [
@@ -545,12 +1127,23 @@
     "state": "West Bengal",
     "city": "Kolkata",
     "region": "Eastern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 140,
     "valuedImages": 42,
     "featuredPictures": 4,
-    "primaryThemes": ["Kolkata Trams & Transport", "Colonial Ghats", "Urban Heritage", "Howrah Bridge", "Old Streetscapes"],
-    "campaigns": ["Wiki Loves Monuments", "Kolkata Urban Heritage"],
+    "primaryThemes": [
+      "Kolkata Trams & Transport",
+      "Colonial Ghats",
+      "Urban Heritage",
+      "Howrah Bridge",
+      "Old Streetscapes"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Kolkata Urban Heritage"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 22.8,
     "recentUploads": [
@@ -574,12 +1167,23 @@
     "state": "Maharashtra / Rajasthan",
     "city": "Pune",
     "region": "Western India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 115,
     "valuedImages": 38,
     "featuredPictures": 3,
-    "primaryThemes": ["Avian Photography", "National Parks of India", "Ranthambore Wildlife", "Flora", "Forts of Maharashtra"],
-    "campaigns": ["Wiki Loves Earth", "Wiki Loves Monuments"],
+    "primaryThemes": [
+      "Avian Photography",
+      "National Parks of India",
+      "Ranthambore Wildlife",
+      "Flora",
+      "Forts of Maharashtra"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Wiki Loves Monuments"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 17.6,
     "recentUploads": [
@@ -603,12 +1207,22 @@
     "state": "West Bengal",
     "city": "Hooghly",
     "region": "Eastern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 130,
     "valuedImages": 26,
     "featuredPictures": 2,
-    "primaryThemes": ["Bansberia Temples", "Terracotta Carvings", "Riverine Hooghly", "Quality Images of India"],
-    "campaigns": ["Wiki Loves Monuments India", "Quality Images"],
+    "primaryThemes": [
+      "Bansberia Temples",
+      "Terracotta Carvings",
+      "Riverine Hooghly",
+      "Quality Images of India"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Quality Images"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 16.4,
     "recentUploads": [
@@ -632,12 +1246,22 @@
     "state": "West Bengal",
     "city": "Siliguri",
     "region": "Eastern India",
-    "groups": ["autopatrolled"],
+    "groups": [
+      "autopatrolled"
+    ],
     "qualityImages": 142,
     "valuedImages": 29,
     "featuredPictures": 3,
-    "primaryThemes": ["Sunbirds & Pollinators", "North Bengal Avifauna", "Dooars Wildlife", "Wild Orchids"],
-    "campaigns": ["Wiki Loves Earth", "Quality Images Candidate"],
+    "primaryThemes": [
+      "Sunbirds & Pollinators",
+      "North Bengal Avifauna",
+      "Dooars Wildlife",
+      "Wild Orchids"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Quality Images Candidate"
+    ],
     "dominantLicense": "CC-BY-SA 4.0",
     "estStorageGB": 15.3,
     "recentUploads": [
@@ -661,12 +1285,23 @@
     "state": "Karnataka",
     "city": "Bengaluru",
     "region": "Southern India",
-    "groups": ["user"],
+    "groups": [
+      "user"
+    ],
     "qualityImages": 85,
     "valuedImages": 45,
     "featuredPictures": 28,
-    "primaryThemes": ["Indian Wildlife", "Western Ghats Biodiversity", "King Cobra & Reptiles", "Nagarhole & Bandipur", "BBC/NatGeo Photography"],
-    "campaigns": ["Wiki Loves Earth", "Commons Featured Pictures"],
+    "primaryThemes": [
+      "Indian Wildlife",
+      "Western Ghats Biodiversity",
+      "King Cobra & Reptiles",
+      "Nagarhole & Bandipur",
+      "BBC/NatGeo Photography"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Commons Featured Pictures"
+    ],
     "dominantLicense": "CC-BY-SA 4.0 / CC-BY 3.0",
     "estStorageGB": 9.2,
     "recentUploads": [

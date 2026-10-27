@@ -87,6 +87,19 @@ class CommonsMetricsApp {
       this.campaigns = await campResp.json();
       this.globalBenchmarks = await benchResp.json();
       this.categoryPresets = await presResp.json();
+
+      // Merge any user-added custom contributors from localStorage
+      try {
+        const custom = JSON.parse(localStorage.getItem('wmc_custom_contributors') || '[]');
+        if (Array.isArray(custom)) {
+          custom.forEach(item => {
+            if (!this.contributors.some(c => c.username.toLowerCase() === item.username.toLowerCase())) {
+              this.contributors.push(item);
+            }
+          });
+          this.contributors.sort((a, b) => b.uploads - a.uploads);
+        }
+      } catch (e) {}
     } catch (err) {
       console.error('Error loading data files:', err);
       this.showToast('Failed to load metrics datasets', 'error');
@@ -176,6 +189,98 @@ class CommonsMetricsApp {
     document.getElementById('modal-close-btn')?.addEventListener('click', () => this.closeModal());
     document.getElementById('contributor-modal')?.addEventListener('click', (e) => {
       if (e.target.id === 'contributor-modal') this.closeModal();
+    });
+
+    // Add / Verify Contributor live modal
+    const addModal = document.getElementById('add-contributor-modal');
+    document.getElementById('add-contributor-btn')?.addEventListener('click', () => {
+      addModal?.classList.remove('hidden');
+    });
+    document.getElementById('add-modal-close-btn')?.addEventListener('click', () => {
+      addModal?.classList.add('hidden');
+    });
+    addModal?.addEventListener('click', (e) => {
+      if (e.target.id === 'add-contributor-modal') addModal?.classList.add('hidden');
+    });
+
+    const addForm = document.getElementById('add-contributor-form');
+    addForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('add-username-input')?.value.trim();
+      const state = document.getElementById('add-state-input')?.value || 'India';
+      if (!username) return;
+
+      const submitBtn = document.getElementById('add-submit-btn');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="inline-block animate-spin mr-2">⏳</span> Querying Commons API...`;
+      }
+
+      try {
+        const userInfo = await commonsApi.fetchUserInfo(username);
+        const uploadCount = await commonsApi.fetchUserUploadCount(username);
+        const recent = await commonsApi.fetchUserRecentUploads(username, 2);
+
+        const newContributor = {
+          username: userInfo.name,
+          realName: userInfo.name,
+          avatar: recent[0]?.thumbUrl || recent[0]?.url || 'assets/logo.svg',
+          uploads: uploadCount || 1,
+          editCount: userInfo.editCount,
+          registration: userInfo.registration,
+          state: state,
+          region: state.includes('Tamil') || state.includes('Kerala') || state.includes('Karnataka') ? 'Southern India' : 'India',
+          groups: userInfo.groups,
+          qualityImages: 0,
+          valuedImages: 0,
+          featuredPictures: 0,
+          primaryThemes: ['Media Uploads', `${state} Heritage`],
+          campaigns: ['Community Contributions'],
+          dominantLicense: 'CC-BY-SA 4.0',
+          estStorageGB: Math.round((uploadCount * 5) / 1024),
+          recentUploads: recent.map(r => ({
+            title: r.title,
+            fileName: r.rawTitle,
+            timestamp: r.timestamp,
+            sizeMB: parseFloat(r.sizeMB),
+            mime: r.mime
+          })),
+          notableContributions: `Active contributor from ${state} with ${uploadCount.toLocaleString()} media uploads.`
+        };
+
+        // Add or update
+        const existingIdx = this.contributors.findIndex(c => c.username.toLowerCase() === username.toLowerCase());
+        if (existingIdx >= 0) {
+          this.contributors[existingIdx] = newContributor;
+        } else {
+          this.contributors.push(newContributor);
+        }
+
+        // Sort
+        this.contributors.sort((a, b) => b.uploads - a.uploads);
+
+        // Save custom contributors in localStorage
+        try {
+          const custom = JSON.parse(localStorage.getItem('wmc_custom_contributors') || '[]');
+          custom.push(newContributor);
+          localStorage.setItem('wmc_custom_contributors', JSON.stringify(custom));
+        } catch (e) {}
+
+        this.renderOverviewStats();
+        this.renderLeaderboard();
+        this.renderCharts();
+        this.showToast(`Verified & added ${userInfo.name} (${uploadCount.toLocaleString()} uploads) to leaderboard!`);
+        addModal?.classList.add('hidden');
+        if (addForm) addForm.reset();
+      } catch (err) {
+        this.showToast(`Error adding contributor: ${err.message}`, 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<i data-lucide="sparkles" class="w-4 h-4 mr-2"></i><span>Fetch Live & Add to Leaderboard</span>`;
+          if (window.lucide) window.lucide.createIcons();
+        }
+      }
     });
   }
 
