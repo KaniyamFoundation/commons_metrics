@@ -133,9 +133,13 @@
 
         <!-- Quick actions -->
         <div class="flex flex-wrap items-center gap-2.5">
+          <button id="sync-live-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-colors" title="Query live APIs to refresh upload counts in real-time">
+            <i id="sync-icon" data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span id="sync-btn-label">Sync Live Data</span>
+          </button>
           <button id="add-contributor-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-primary hover:bg-primary-dark text-white shadow-sm transition-colors">
             <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
-            <span>Add / Verify Contributor</span>
+            <span>Add Contributor</span>
           </button>
           <button id="export-csv-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 text-slate-700 dark:text-slate-200 shadow-sm transition-colors">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
@@ -296,8 +300,21 @@
           <span id="filtered-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300">
             ...
           </span>
+          <span id="sync-status-badge" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span id="sync-status-text">Snapshot Verified</span>
+          </span>
         </div>
         <p class="text-xs text-slate-500 dark:text-slate-400">Click any user to inspect live uploads &amp; metadata</p>
+      </div>
+
+      <!-- Live Sync Progress Banner (Hidden by default) -->
+      <div id="sync-progress-banner" class="hidden mb-4 p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl flex items-center justify-between text-xs text-emerald-800 dark:text-emerald-200">
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
+          <span id="sync-progress-text">Syncing live upload counts with Commons &amp; XTools APIs...</span>
+        </div>
+        <span id="sync-progress-count" class="font-bold">0 / 0</span>
       </div>
 
       <!-- LEADERBOARD TABLE VIEW -->

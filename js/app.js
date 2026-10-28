@@ -88,6 +88,20 @@ class CommonsMetricsApp {
       this.globalBenchmarks = await benchResp.json();
       this.categoryPresets = await presResp.json();
 
+      // Check if user previously performed a live sync in this browser
+      try {
+        const live = JSON.parse(localStorage.getItem('wmc_live_contributors') || 'null');
+        const lastSync = localStorage.getItem('wmc_last_synced');
+        if (Array.isArray(live) && live.length > 0) {
+          this.contributors = live;
+          const statusText = document.getElementById('sync-status-text');
+          if (statusText && lastSync) {
+            const timeAgo = Math.round((Date.now() - new Date(lastSync).getTime()) / (60 * 1000));
+            statusText.textContent = timeAgo < 60 ? `Synced ${timeAgo}m ago` : `Synced ${Math.round(timeAgo/60)}h ago`;
+          }
+        }
+      } catch (e) {}
+
       // Merge any user-added custom contributors from localStorage
       try {
         const custom = JSON.parse(localStorage.getItem('wmc_custom_contributors') || '[]');
@@ -110,7 +124,8 @@ class CommonsMetricsApp {
     // Theme toggle
     document.getElementById('theme-toggle-btn')?.addEventListener('click', () => this.toggleTheme());
 
-    // Navigation Tabs
+    // Sync live counts button
+    document.getElementById('sync-live-btn')?.addEventListener('click', () => this.syncLiveCounts());
     const navButtons = document.querySelectorAll('.nav-tab-btn');
     navButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -825,6 +840,92 @@ class CommonsMetricsApp {
     } catch (err) {
       loader?.classList.add('hidden');
       this.showToast(`Error scanning category: ${err.message}`, 'error');
+    }
+  }
+
+  async syncLiveCounts() {
+    if (this.isSyncing) return;
+    this.isSyncing = true;
+
+    const syncBtn = document.getElementById('sync-live-btn');
+    const syncIcon = document.getElementById('sync-icon');
+    const banner = document.getElementById('sync-progress-banner');
+    const progressCount = document.getElementById('sync-progress-count');
+    const progressText = document.getElementById('sync-progress-text');
+    const statusText = document.getElementById('sync-status-text');
+
+    if (syncIcon) syncIcon.classList.add('animate-spin');
+    if (banner) banner.classList.remove('hidden');
+
+    this.showToast('Starting live sync with Wikimedia APIs...');
+
+    try {
+      // 1. Batch fetch edit counts via Commons Action API
+      const allNames = this.contributors.map(c => c.username);
+      const chunkSize = 40;
+      for (let i = 0; i < allNames.length; i += chunkSize) {
+        const chunk = allNames.slice(i, i + chunkSize);
+        const url = `https://commons.wikimedia.org/w/api.php?action=query&list=users&ususers=${chunk.map(encodeURIComponent).join('|')}&usprop=editcount&origin=*&format=json`;
+        try {
+          const resp = await fetch(url);
+          if (resp.ok) {
+            const data = await resp.json();
+            const users = data?.query?.users || [];
+            users.forEach(u => {
+              const matched = this.contributors.find(c => c.username.toLowerCase() === u.name.toLowerCase());
+              if (matched && u.editcount) {
+                matched.editCount = u.editcount;
+              }
+            });
+          }
+        } catch (e) {
+          console.warn('Batch editcount sync error:', e);
+        }
+      }
+
+      // 2. Fetch live upload counts (namespace 6 pages) sequentially with polite delay
+      const total = this.contributors.length;
+      for (let i = 0; i < total; i++) {
+        const c = this.contributors[i];
+        if (progressCount) progressCount.textContent = `${i + 1} / ${total}`;
+        if (progressText) progressText.textContent = `Syncing live count for ${c.username}...`;
+
+        try {
+          const liveCount = await commonsApi.fetchUserUploadCount(c.username);
+          if (typeof liveCount === 'number' && liveCount > 0) {
+            c.uploads = liveCount;
+            c.lastSynced = new Date().toISOString();
+          }
+        } catch (err) {
+          console.warn(`Could not sync ${c.username}:`, err);
+        }
+
+        // Live re-render every 3 users
+        if (i % 3 === 0 || i === total - 1) {
+          this.contributors.sort((a, b) => b.uploads - a.uploads);
+          this.renderOverviewStats();
+          this.renderLeaderboard();
+        }
+
+        // Polite pause to avoid rate limiting
+        await new Promise(r => setTimeout(r, 250));
+      }
+
+      // Persist live synced data
+      try {
+        localStorage.setItem('wmc_live_contributors', JSON.stringify(this.contributors));
+        localStorage.setItem('wmc_last_synced', new Date().toISOString());
+      } catch (e) {}
+
+      if (statusText) statusText.textContent = 'Live: Just now';
+      this.renderCharts();
+      this.showToast(`Live sync complete! Updated ${total} contributors from Wikimedia Commons.`);
+    } catch (err) {
+      this.showToast(`Sync error: ${err.message}`, 'error');
+    } finally {
+      this.isSyncing = false;
+      if (syncIcon) syncIcon.classList.remove('animate-spin');
+      if (banner) banner.classList.add('hidden');
     }
   }
 

@@ -7,8 +7,10 @@ Fetches contributor upload metrics and user metadata from Wikimedia Commons API 
 import sys
 import json
 import time
+import argparse
 import urllib.request
 import urllib.parse
+from pathlib import Path
 from typing import List, Dict, Any, Optional
 
 USER_AGENT = "CommonsMetricsApp/1.0 (https://github.com/commons-metrics; wikimedia-metrics@example.org)"
@@ -56,7 +58,7 @@ def fetch_user_info(usernames: List[str]) -> Dict[str, Dict[str, Any]]:
                     results[name] = {
                         "userId": u.get("userid"),
                         "editCount": u.get("editcount", 0),
-                        "registration": u.get("registration", "Unknown"),
+                        "registration": u.get("registration", "Unknown")[:10] if u.get("registration") else "Unknown",
                         "groups": [g for g in u.get("groups", []) if g not in ("*", "user", "autoconfirmed")]
                     }
         time.sleep(0.5)
@@ -66,36 +68,61 @@ def fetch_namespace6_count(username: str) -> Optional[int]:
     """Fetch exact uploaded file count (namespace 6 pages created) from XTools."""
     enc = urllib.parse.quote(username)
     url = f"https://xtools.wmcloud.org/api/user/pages_count/commons.wikimedia.org/{enc}/6"
-    data = make_request(url, timeout=12)
+    data = make_request(url, timeout=15)
     if data and "counts" in data and "6" in data["counts"]:
         return data["counts"]["6"].get("count", 0)
     return None
 
-def fetch_recent_uploads(username: str, limit: int = 5) -> List[Dict[str, Any]]:
-    """Fetch sample recent uploads for a user."""
-    enc = urllib.parse.quote(username)
-    url = (
-        f"https://commons.wikimedia.org/w/api.php?action=query&list=allimages"
-        f"&aiuser={enc}&aisort=timestamp&aidir=descending&ailimit={limit}"
-        f"&aiprop=timestamp|user|url|size|mime&format=json"
-    )
-    data = make_request(url)
-    uploads = []
-    if data and "query" in data and "allimages" in data["query"]:
-        for img in data["query"]["allimages"]:
-            uploads.append({
-                "title": img.get("title", ""),
-                "timestamp": img.get("timestamp", ""),
-                "size": img.get("size", 0),
-                "width": img.get("width", 0),
-                "height": img.get("height", 0),
-                "mime": img.get("mime", "image/jpeg"),
-                "thumbUrl": img.get("url", ""),
-                "url": f"https://commons.wikimedia.org/wiki/{urllib.parse.quote(img.get('title', ''))}"
-            })
-    return uploads
+def update_all_contributors(data_path: str = "data/contributors_india.json") -> None:
+    p = Path(data_path)
+    if not p.exists():
+        print(f"Data file {data_path} not found.")
+        return
+
+    with open(p, "r", encoding="utf-8") as f:
+        contributors = json.load(f)
+
+    print(f"Updating {len(contributors)} contributors with live Commons API & XTools data...")
+
+    # Batch update editcounts
+    usernames = [c["username"] for c in contributors]
+    user_info = fetch_user_info(usernames)
+
+    for idx, c in enumerate(contributors, 1):
+        uname = c["username"]
+        print(f"[{idx}/{len(contributors)}] Updating {uname}...")
+        if uname in user_info:
+            c["editCount"] = user_info[uname]["editCount"]
+            if user_info[uname]["groups"]:
+                c["groups"] = user_info[uname]["groups"]
+
+        # Fetch upload count
+        cnt = fetch_namespace6_count(uname)
+        if cnt is not None and cnt > 0:
+            c["uploads"] = cnt
+
+        time.sleep(0.4)
+
+    # Sort descending by uploads
+    contributors.sort(key=lambda x: x["uploads"], reverse=True)
+
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump(contributors, f, indent=2, ensure_ascii=False)
+
+    print(f"Successfully refreshed and saved {len(contributors)} contributors to {data_path}!")
 
 if __name__ == "__main__":
-    print("Testing fetcher script...")
-    user_info = fetch_user_info(["Gangulybiswarup", "Jkadavoor"])
-    print("User info fetched:", user_info)
+    parser = argparse.ArgumentParser(description="Fetch Wikimedia Commons contributor metrics.")
+    parser.add_argument("--update-all", action="store_true", help="Update data/contributors_india.json with live counts")
+    parser.add_argument("--user", help="Lookup a single username")
+    args = parser.parse_args()
+
+    if args.update_all:
+        update_all_contributors()
+    elif args.user:
+        info = fetch_user_info([args.user])
+        count = fetch_namespace6_count(args.user)
+        print(f"User info for {args.user}: {info.get(args.user)}")
+        print(f"Namespace 6 upload count: {count}")
+    else:
+        print("Run with --update-all to update all contributor records or --user <name> to check a single user.")
