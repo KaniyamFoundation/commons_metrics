@@ -200,6 +200,80 @@ class CommonsMetricsApp {
       if (cat) this.scanCategory(cat);
     });
 
+    // Quarry Import Form
+    const quarryForm = document.getElementById('quarry-import-form');
+    quarryForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const val = document.getElementById('quarry-url-input')?.value.trim();
+      if (!val) return;
+
+      const btn = document.getElementById('quarry-load-btn');
+      if (btn) btn.innerHTML = `<span class="inline-block animate-spin mr-1.5">⏳</span> Fetching...`;
+
+      try {
+        const rows = await commonsApi.fetchQuarryResult(val);
+        let updatedCount = 0;
+
+        rows.forEach(r => {
+          const existing = this.contributors.find(c => c.username.toLowerCase() === r.username.toLowerCase());
+          if (existing) {
+            existing.uploads = r.uploads;
+            if (r.size) existing.estStorageGB = r.size;
+            updatedCount++;
+          } else {
+            // Add new contributor from Quarry
+            this.contributors.push({
+              username: r.username,
+              realName: r.username,
+              avatar: 'assets/logo.svg',
+              uploads: r.uploads,
+              editCount: r.uploads,
+              registration: 'N/A',
+              state: 'India',
+              region: 'India',
+              groups: ['user'],
+              qualityImages: 0,
+              valuedImages: 0,
+              featuredPictures: 0,
+              primaryThemes: ['Quarry Dataset'],
+              campaigns: ['Quarry SQL Import'],
+              dominantLicense: 'CC-BY-SA 4.0',
+              estStorageGB: r.size || Math.round((r.uploads * 5) / 1024),
+              notableContributions: 'Imported via Wikimedia Quarry SQL execution.'
+            });
+            updatedCount++;
+          }
+        });
+
+        this.contributors.sort((a, b) => b.uploads - a.uploads);
+        this.renderOverviewStats();
+        this.renderLeaderboard();
+        this.renderCharts();
+
+        this.showToast(`Successfully imported ${updatedCount} contributor metrics from Quarry!`);
+        this.switchTab('leaderboard');
+      } catch (err) {
+        this.showToast(`Error importing Quarry data: ${err.message}`, 'error');
+      } finally {
+        if (btn) {
+          btn.innerHTML = `<i data-lucide="download-cloud" class="w-4 h-4"></i><span>Import to Leaderboard</span>`;
+          if (window.lucide) window.lucide.createIcons();
+        }
+      }
+    });
+
+    // Copy SQL buttons
+    document.querySelectorAll('.copy-sql-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const targetId = e.currentTarget.getAttribute('data-target');
+        const codeEl = document.getElementById(targetId);
+        if (codeEl) {
+          navigator.clipboard.writeText(codeEl.textContent);
+          this.showToast('Copied SQL query to clipboard!');
+        }
+      });
+    });
+
     // Modal close
     document.getElementById('modal-close-btn')?.addEventListener('click', () => this.closeModal());
     document.getElementById('contributor-modal')?.addEventListener('click', (e) => {

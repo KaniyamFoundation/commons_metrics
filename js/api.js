@@ -136,6 +136,43 @@ export class CommonsApiClient {
   }
 
   /**
+   * Fetches published SQL query results from Quarry (quarry.wmcloud.org)
+   * Supports Quarry run URLs or numeric Run IDs with full CORS support.
+   */
+  async fetchQuarryResult(runIdOrUrl) {
+    let qrunId = runIdOrUrl.toString().trim();
+    // Extract run ID if full URL provided
+    const match = qrunId.match(/run\/(\d+)/i) || qrunId.match(/(\d+)/);
+    if (match) {
+      qrunId = match[1];
+    } else {
+      throw new Error('Invalid Quarry Run ID or URL.');
+    }
+
+    const url = `https://quarry.wmcloud.org/run/${qrunId}/output/0/json`;
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error(`Quarry responded with HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    const headers = data?.headers || [];
+    const rows = data?.rows || [];
+
+    const userIdx = headers.findIndex(h => ['username', 'actor_name', 'user'].includes(h.toLowerCase()));
+    const uploadIdx = headers.findIndex(h => ['total_uploads', 'uploads', 'count', 'campaign_uploads'].includes(h.toLowerCase()));
+    const sizeIdx = headers.findIndex(h => ['total_size_gb', 'total_mb', 'size'].includes(h.toLowerCase()));
+
+    if (userIdx === -1 || uploadIdx === -1) {
+      throw new Error(`Quarry result must contain username and upload count columns. Found: ${headers.join(', ')}`);
+    }
+
+    return rows.map(r => ({
+      username: r[userIdx],
+      uploads: parseInt(r[uploadIdx], 10) || 0,
+      size: sizeIdx !== -1 ? parseFloat(r[sizeIdx]) : null
+    }));
+  }
+
+  /**
    * Scans a Commons Category and groups uploads by contributor in real-time.
    */
   async scanCategoryContributors(categoryName, maxFiles = 150, onProgress = null) {
