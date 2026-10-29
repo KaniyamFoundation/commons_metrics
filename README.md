@@ -123,11 +123,23 @@ Uses polite Wikimedia API request pacing (`User-Agent: CommonsMetricsApp/1.0`) w
 
 ---
 
-## 🚢 Deployment Options
+## 🚢 Deployment & GitHub Pages
 
-- **GitHub Pages**: Push this repository to GitHub and enable GitHub Pages on the `main` branch root (`/`).
-- **Wikimedia Toolforge**: Deploy static HTML to `public_html` on Toolforge.
-- **Vercel / Netlify**: Connect the git repository with default static settings (no build command needed, publish directory `.`).
+This site is published and automatically deployed on **GitHub Pages**:
+- **Live URL**: [https://kaniyamfoundation.github.io/commons_metrics/](https://kaniyamfoundation.github.io/commons_metrics/)
+- **Repository**: [https://github.com/KaniyamFoundation/commons_metrics](https://github.com/KaniyamFoundation/commons_metrics)
+
+The site includes two automated GitHub Actions workflows:
+1. [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml): Automatically builds and deploys every commit to GitHub Pages.
+2. [`.github/workflows/update-metrics.yml`](.github/workflows/update-metrics.yml): Runs daily at 02:00 UTC to refresh contributor counts against the live Commons API and commit fresh data.
+
+---
+
+## 👥 About & Credits
+
+- **Organization**: [Kaniyam Foundation](https://kaniyam.com/foundation) ([கணியம் அறக்கட்டளை](https://kaniyam.com/foundation))
+- **Pair Programming**: Developed with Google DeepMind's Antigravity AI assistant.
+- **Data Source**: Wikimedia Commons Action API & Toolforge XTools.
 
 ---
 
