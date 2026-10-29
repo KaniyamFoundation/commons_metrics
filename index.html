@@ -353,7 +353,7 @@
           <div class="flex sm:flex-col items-end justify-between sm:justify-center gap-2 shrink-0">
             <div class="text-right">
               <span class="text-[11px] text-slate-400 block font-medium">Daily Refresh Status</span>
-              <span id="visitor-sync-counter" class="text-xl font-black text-primary dark:text-sky-400">0 / 34</span>
+              <span id="visitor-sync-counter" class="text-xl font-black text-primary dark:text-sky-400">0 / --</span>
             </div>
             <button id="force-daily-sync-btn" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-primary text-slate-700 dark:text-slate-200 transition-colors flex items-center gap-1.5 shadow-sm" title="Re-run today's first-visitor sync sequence">
               <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
@@ -397,9 +397,9 @@
               </div>
               <span class="font-bold text-slate-200 ml-1">COMMONS DATASTREAM</span>
               <span class="text-slate-600">|</span>
-              <span class="text-emerald-400 font-semibold flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                <span>INGESTING PACKETS</span>
+              <span id="terminal-status-container" class="text-emerald-400 font-semibold flex items-center gap-1.5">
+                <span id="terminal-status-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span id="terminal-status-text">INGESTING PACKETS</span>
               </span>
             </div>
             <div class="flex items-center gap-3">
@@ -742,7 +742,8 @@ WHERE actor_name IN (
     'Yakshitha', 'I.Mahesh', 'Thamizhpparithi Maari', 'Nizil Shah',
     'Jnanaranjan sahu', 'Tagooty', 'Subhrajyoti07', 'Kuldeepburjbhalaike',
     'Balajijagadesh', 'Dev Jadiya', 'Praveenp', 'Kiran Gopi', 'Gnoeee',
-    'Pavanaja', 'Satdeep Gill', 'Dineshkannambadi', 'Atudu', 'Joydeep'
+    'Pavanaja', 'Satdeep Gill', 'Dineshkannambadi', 'Atudu', 'Joydeep',
+    'Indrajitdas', 'Pranayraj1985', 'KCVelaga', 'Tshrinivasan'
 )
 GROUP BY actor_name
 ORDER BY total_uploads DESC;</code></pre>

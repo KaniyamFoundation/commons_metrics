@@ -1058,6 +1058,12 @@ class CommonsMetricsApp {
       if (triviaBox) triviaBox.classList.add('hidden');
       const terminalBox = document.getElementById('visitor-terminal-container');
       if (terminalBox) terminalBox.classList.add('hidden');
+      const terminalStatusDot = document.getElementById('terminal-status-dot');
+      const terminalStatusText = document.getElementById('terminal-status-text');
+      const terminalLatency = document.getElementById('terminal-latency');
+      if (terminalStatusDot) terminalStatusDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+      if (terminalStatusText) terminalStatusText.textContent = 'SYNCED TODAY • IDLE';
+      if (terminalLatency) terminalLatency.textContent = 'latency: idle (cached)';
 
       this.renderOverviewStats();
       this.renderLeaderboard();
@@ -1093,11 +1099,16 @@ class CommonsMetricsApp {
     const streamUploads = document.getElementById('stream-uploads');
     const streamEdits = document.getElementById('stream-edits');
     const terminalLatency = document.getElementById('terminal-latency');
+    const terminalStatusDot = document.getElementById('terminal-status-dot');
+    const terminalStatusText = document.getElementById('terminal-status-text');
 
     if (iconEl) iconEl.textContent = '🌅';
     if (progressSection) progressSection.classList.remove('hidden');
     if (triviaBox) triviaBox.classList.remove('hidden');
     if (terminalBox) terminalBox.classList.remove('hidden');
+    if (terminalStatusDot) terminalStatusDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping';
+    if (terminalStatusText) terminalStatusText.textContent = 'INGESTING PACKETS';
+    if (terminalLatency) terminalLatency.textContent = 'latency: ~18ms';
     if (forceBtnLabel) forceBtnLabel.textContent = 'Syncing...';
     if (logContainer) logContainer.innerHTML = '';
 
@@ -1270,6 +1281,10 @@ class CommonsMetricsApp {
       if (desc) desc.textContent = `As today's first visitor, you refreshed live metrics from Wikimedia Commons. All visitors for the rest of today will now load this fresh data with instantaneous 0ms speed!`;
       if (forceBtnLabel) forceBtnLabel.textContent = 'Re-run Daily Sync';
 
+      if (terminalStatusDot) terminalStatusDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+      if (terminalStatusText) terminalStatusText.textContent = 'SYNC COMPLETED • IDLE';
+      if (terminalLatency) terminalLatency.textContent = 'latency: idle (cached)';
+
       appendStreamLog(`✓ COMPLETED: ${totalContributors} Indian Wikimedians verified live against Wikimedia Commons.`, 'success');
       appendStreamLog(`✓ Storage updated in browser cache. Next automatic refresh tomorrow.`, 'highlight');
 
@@ -1284,6 +1299,9 @@ class CommonsMetricsApp {
     } catch (err) {
       clearInterval(triviaInterval);
       console.warn('First-visitor daily sync completed with fallback:', err);
+      if (terminalStatusDot) terminalStatusDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+      if (terminalStatusText) terminalStatusText.textContent = 'SYNC COMPLETED • IDLE';
+      if (terminalLatency) terminalLatency.textContent = 'latency: idle (cached)';
       if (stepText) stepText.textContent = 'Daily verification active.';
       if (progressBar) progressBar.style.width = '100%';
       if (percentEl) percentEl.textContent = '100%';

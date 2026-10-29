@@ -22,11 +22,12 @@ WHERE actor_name IN (
     'Gangulybiswarup', 'Netha Hussain', 'Pinakpani', 'Yercaud-elango',
     'Sumita Roy Dutta', 'Vengolis', 'Bodhisattwa', 'Sumitsurai',
     'Jkadavoor', 'Ranjithsiji', 'Suyash.dwivedi', 'Info-farmer',
-    'Yakshitha', 'I.Mahesh', 'Thamizhpparithi Maari', 'Nizil Shah',
-    'Jnanaranjan sahu', 'Tagooty', 'Subhrajyoti07', 'Kuldeepburjbhalaike',
-    'Balajijagadesh', 'Dev Jadiya', 'Praveenp', 'Kiran Gopi', 'Gnoeee',
-    'Pavanaja', 'Satdeep Gill', 'Dineshkannambadi', 'Atudu', 'Joydeep',
-    'Snehrashmi', 'TAPAS KUMAR HALDER', 'Sourabh.biswas003', 'Kalyanvarma'
+    'Indrajitdas', 'Yakshitha', 'I.Mahesh', 'Thamizhpparithi Maari',
+    'Pranayraj1985', 'Nizil Shah', 'Jnanaranjan sahu', 'Tagooty',
+    'Subhrajyoti07', 'Kuldeepburjbhalaike', 'Balajijagadesh', 'Dev Jadiya',
+    'Praveenp', 'Kiran Gopi', 'Gnoeee', 'Pavanaja', 'Satdeep Gill',
+    'Dineshkannambadi', 'Atudu', 'Joydeep', 'Snehrashmi', 'TAPAS KUMAR HALDER',
+    'Sourabh.biswas003', 'KCVelaga', 'Tshrinivasan', 'Kalyanvarma'
 )
 GROUP BY actor_name
 ORDER BY total_uploads DESC;
@@ -61,7 +62,9 @@ LIMIT 200;
 
 -- ------------------------------------------------------------------------------
 -- QUERY 3: Find Contributors with 'India' or Regional Userboxes (Babel / Location)
--- Discovers Indian Wikimedians declared via User categories
+-- Discovers Indian Wikimedians declared via User categories.
+-- Note: Misses users whose userpage is on a language wiki (e.g. ta.wikipedia.org)
+-- and who haven't created a User page on commons.wikimedia.org!
 -- ------------------------------------------------------------------------------
 USE commonswiki_p;
 
@@ -84,3 +87,36 @@ WHERE cl_to IN (
 GROUP BY actor_name
 HAVING total_uploads >= 500
 ORDER BY total_uploads DESC;
+
+
+-- ------------------------------------------------------------------------------
+-- QUERY 4: Discovering Indic Regional & GLAM Contributors Missing Userpages
+-- Finds uploaders of Indic heritage, Wikisource media, and community projects
+-- who contribute heavily to Commons without maintaining a Commons User: page.
+-- ------------------------------------------------------------------------------
+USE commonswiki_p;
+
+SELECT 
+    actor_name AS username,
+    COUNT(DISTINCT img_name) AS indic_uploads,
+    ROUND(SUM(img_size) / (1024 * 1024), 1) AS megabytes_uploaded,
+    MIN(img_timestamp) AS first_seen,
+    MAX(img_timestamp) AS latest_seen
+FROM categorylinks
+JOIN page ON cl_from = page_id AND page_namespace = 6
+JOIN image ON page_title = img_name
+JOIN actor_image ON img_actor = actor_id
+WHERE cl_to IN (
+    'Media_contributed_by_the_Kaniyam_Foundation',
+    'Tamil_Wikisource',
+    'Images_from_Tamil_Nadu',
+    'GLAM_in_India',
+    'Photographs_of_Chennai',
+    'Images_from_West_Bengal',
+    'Images_from_Kerala',
+    'Images_from_Karnataka'
+)
+GROUP BY actor_name
+HAVING indic_uploads >= 10
+ORDER BY indic_uploads DESC
+LIMIT 100;
