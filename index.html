@@ -384,6 +384,69 @@
           </div>
         </div>
 
+        <!-- LIVE INGESTION TERMINAL / TEXT ANIMATION STREAM -->
+        <div id="visitor-terminal-container" class="mt-4 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono overflow-hidden shadow-2xl">
+          
+          <!-- Terminal header -->
+          <div class="px-3.5 py-2 bg-slate-900 border-b border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+            <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              </div>
+              <span class="font-bold text-slate-200 ml-1">COMMONS DATASTREAM</span>
+              <span class="text-slate-600">|</span>
+              <span class="text-emerald-400 font-semibold flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>INGESTING PACKETS</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span id="terminal-latency" class="text-slate-500 text-[10px]">latency: ~18ms</span>
+              <span class="text-sky-400 font-semibold text-[11px]">commonswiki_p</span>
+            </div>
+          </div>
+
+          <!-- Currently Ingesting Live Card -->
+          <div id="terminal-active-item" class="p-3 bg-slate-900/60 border-b border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="relative shrink-0">
+                <img id="stream-avatar" src="assets/logo.svg" alt="Avatar" class="w-9 h-9 rounded-lg object-cover border border-slate-700 bg-slate-800" />
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-slate-950 absolute -bottom-0.5 -right-0.5 animate-pulse"></span>
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-slate-500 text-[10px]">CURRENT:</span>
+                  <span id="stream-username" class="font-bold text-sky-300 text-sm">Gangulybiswarup</span>
+                  <span id="stream-state" class="px-1.5 py-0.2 rounded text-[10px] bg-slate-800 text-slate-300 border border-slate-700">West Bengal</span>
+                </div>
+                <div class="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1.5 truncate">
+                  <span class="text-slate-500 shrink-0">Latest media:</span>
+                  <span id="stream-latest-file" class="text-slate-300 truncate">Dusk_Cloudscape_-_Arabian_Sea_India.jpg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 text-right shrink-0">
+              <div>
+                <span class="text-[10px] text-slate-500 block uppercase">Uploads</span>
+                <span id="stream-uploads" class="text-base font-black text-amber-400">64,707</span>
+              </div>
+              <div>
+                <span class="text-[10px] text-slate-500 block uppercase">Edits</span>
+                <span id="stream-edits" class="text-base font-black text-emerald-400">98,365</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fast scrolling log output lines with typewriter effect -->
+          <div id="stream-log-container" class="p-3 h-28 overflow-y-auto space-y-1 text-[11px] font-mono leading-relaxed text-slate-400 select-text">
+            <!-- Dynamically populated animated lines -->
+          </div>
+
+        </div>
+
       </div>
 
       <!-- LEADERBOARD TABLE VIEW -->
