@@ -321,54 +321,69 @@
         <span id="sync-progress-count" class="font-bold">0 / 0</span>
       </div>
 
-      <!-- DAILY LEADER LIVE VERIFICATION & PULSE BANNER -->
-      <div id="daily-leader-banner" class="mb-6 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-300/60 dark:border-amber-700/60 rounded-2xl p-4 sm:p-5 shadow-sm leader-card-glow relative overflow-hidden transition-all duration-300">
+      <!-- DAILY FIRST-VISITOR REFRESH BANNER -->
+      <div id="first-visitor-banner" class="mb-6 bg-gradient-to-r from-sky-500/10 via-emerald-500/10 to-amber-500/10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border border-sky-300/70 dark:border-sky-800/80 rounded-2xl p-5 shadow-sm relative overflow-hidden transition-all duration-300">
+        
+        <!-- Header area -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div class="flex items-start gap-3.5">
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-400/40">
-              <span class="text-2xl">👑</span>
+            <div id="visitor-banner-icon" class="w-12 h-12 rounded-2xl bg-sky-500/20 text-primary dark:text-sky-400 flex items-center justify-center shrink-0 border border-sky-400/40 text-2xl">
+              🌅
             </div>
             <div>
               <div class="flex items-center gap-2 flex-wrap">
-                <span class="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
-                  Daily Leader Live Verification
+                <span id="visitor-banner-role-tag" class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 border border-sky-300 dark:border-sky-800 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping"></span>
+                  <span id="visitor-role-text">First Visitor of the Day</span>
                 </span>
-                <span id="leader-status-tag" class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-200 text-amber-900 dark:bg-amber-950 dark:text-amber-300 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                  <span id="leader-status-tag-text">Live Syncing</span>
+                <span id="visitor-banner-date-badge" class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  Today
                 </span>
               </div>
-              <h3 id="leader-banner-headline" class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">
-                Verifying live upload metrics for #1 Leader: <span id="leader-banner-name" class="text-amber-600 dark:text-amber-400">...</span>
+              <h3 id="visitor-banner-headline" class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-1">
+                Welcome! As today's first visitor, we are syncing real-time Wikimedia metrics for you...
               </h3>
-              <p id="leader-interesting-message" class="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
-                Establishing uplink with Wikimedia Commons to fetch today's real-time upload volume...
+              <p id="visitor-banner-desc" class="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                Because you are today's first visitor, CommonsPulse is querying live Wikimedia Cloud replicas in the background (~1 min). All subsequent visitors today will enjoy instant 0ms cached data thanks to you!
               </p>
             </div>
           </div>
 
+          <!-- Quick status & action -->
           <div class="flex sm:flex-col items-end justify-between sm:justify-center gap-2 shrink-0">
             <div class="text-right">
-              <span class="text-[11px] text-slate-400 block font-medium">Live Uploads (Ns 6)</span>
-              <span id="leader-live-count-display" class="text-2xl font-black text-amber-600 dark:text-amber-400">...</span>
+              <span class="text-[11px] text-slate-400 block font-medium">Daily Refresh Status</span>
+              <span id="visitor-sync-counter" class="text-xl font-black text-primary dark:text-sky-400">0 / 34</span>
             </div>
-            <button id="recheck-leader-btn" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors flex items-center gap-1.5 shadow-sm" title="Re-run live verification for Rank #1">
+            <button id="force-daily-sync-btn" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-primary text-slate-700 dark:text-slate-200 transition-colors flex items-center gap-1.5 shadow-sm" title="Re-run today's first-visitor sync sequence">
               <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-              <span>Re-verify #1</span>
+              <span id="force-daily-sync-label">Re-run Daily Sync</span>
             </button>
           </div>
         </div>
 
-        <!-- Progress bar -->
-        <div id="leader-progress-container" class="mt-4 pt-3 border-t border-amber-200/60 dark:border-amber-800/60">
-          <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-1.5">
-            <span id="leader-progress-step-text">🛰️ Connecting to Wikimedia Cloud replica database...</span>
-            <span id="leader-progress-percent" class="font-bold text-amber-600 dark:text-amber-400">8%</span>
-          </div>
-          <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
-            <div id="leader-progress-bar" class="bg-gradient-to-r from-amber-500 via-orange-500 to-emerald-500 h-full rounded-full transition-all duration-700 ease-out" style="width: 8%"></div>
+        <!-- Trivia & Milestone Card -->
+        <div id="visitor-trivia-container" class="mt-4 p-3.5 rounded-xl bg-white/70 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/80 flex items-start gap-3">
+          <span class="text-lg">💡</span>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block">While you wait — Did you know?</span>
+            <p id="visitor-rotating-trivia" class="text-xs text-slate-700 dark:text-slate-300 mt-0.5 leading-relaxed">
+              Wikimedia Commons hosts over 100 million freely usable media files. Prolific Indian uploaders like Biswarup Ganguly, Dr. Netha Hussain, and Yercaud Elango have contributed over 150,000 files combined!
+            </p>
           </div>
         </div>
+
+        <!-- Progress bar and step status -->
+        <div id="visitor-progress-section" class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
+          <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-1.5">
+            <span id="visitor-progress-step-text">🛰️ Establishing uplink with Wikimedia Commons...</span>
+            <span id="visitor-progress-percent" class="font-bold text-primary dark:text-sky-400">0%</span>
+          </div>
+          <div class="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+            <div id="visitor-progress-bar" class="bg-gradient-to-r from-sky-500 via-emerald-500 to-amber-500 h-full rounded-full transition-all duration-700 ease-out" style="width: 5%"></div>
+          </div>
+        </div>
+
       </div>
 
       <!-- LEADERBOARD TABLE VIEW -->

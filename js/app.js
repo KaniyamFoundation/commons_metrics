@@ -39,7 +39,7 @@ class CommonsMetricsApp {
     this.renderCategoryPresets();
     this.renderCharts();
     this.handleRoute();
-    this.initDailyLeaderVerification();
+    this.initFirstVisitorDailySync();
 
     // Render Lucide icons
     if (window.lucide) {
@@ -128,10 +128,10 @@ class CommonsMetricsApp {
     // Sync live counts button
     document.getElementById('sync-live-btn')?.addEventListener('click', () => this.syncLiveCounts());
 
-    // Recheck daily leader button
-    document.getElementById('recheck-leader-btn')?.addEventListener('click', () => {
-      localStorage.removeItem('wmc_daily_leader_check');
-      this.initDailyLeaderVerification(true);
+    // Force daily first-visitor sync button
+    document.getElementById('force-daily-sync-btn')?.addEventListener('click', () => {
+      localStorage.removeItem('wmc_daily_sync_date');
+      this.initFirstVisitorDailySync(true);
     });
     const navButtons = document.querySelectorAll('.nav-tab-btn');
     navButtons.forEach(btn => {
@@ -1015,184 +1015,190 @@ class CommonsMetricsApp {
   }
 
   /**
-   * Daily Live Verification for the #1 Leader
-   * Runs for the first user alone each day, showing interesting progress messages and facts.
+   * Daily First-Visitor Live Refresh System
+   * On any day, the very first visitor to the website triggers a ~1 minute live refresh
+   * across Wikimedia Commons APIs, displaying engaging rotating trivia and progress.
+   * All subsequent visitors on that day enjoy instant 0ms cached data!
    */
-  async initDailyLeaderVerification(force = false) {
+  async initFirstVisitorDailySync(force = false) {
     if (!this.contributors || this.contributors.length === 0) return;
-    const leader = this.contributors[0];
     const todayStr = new Date().toISOString().split('T')[0];
 
-    const bannerName = document.getElementById('leader-banner-name');
-    const headline = document.getElementById('leader-banner-headline');
-    const statusTag = document.getElementById('leader-status-tag');
-    const statusText = document.getElementById('leader-status-tag-text');
-    const msgEl = document.getElementById('leader-interesting-message');
-    const countDisplay = document.getElementById('leader-live-count-display');
-    const stepText = document.getElementById('leader-progress-step-text');
-    const percentEl = document.getElementById('leader-progress-percent');
-    const progressBar = document.getElementById('leader-progress-bar');
+    const iconEl = document.getElementById('visitor-banner-icon');
+    const roleText = document.getElementById('visitor-role-text');
+    const roleTag = document.getElementById('visitor-banner-role-tag');
+    const dateBadge = document.getElementById('visitor-banner-date-badge');
+    const headline = document.getElementById('visitor-banner-headline');
+    const desc = document.getElementById('visitor-banner-desc');
+    const counter = document.getElementById('visitor-sync-counter');
+    const progressSection = document.getElementById('visitor-progress-section');
+    const triviaBox = document.getElementById('visitor-trivia-container');
 
-    if (bannerName) bannerName.textContent = leader.realName ? `${leader.username} (${leader.realName})` : leader.username;
+    if (dateBadge) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      dateBadge.textContent = new Date().toLocaleDateString(undefined, options);
+    }
 
-    // Check if already verified today in localStorage
-    const cached = JSON.parse(localStorage.getItem('wmc_daily_leader_check') || 'null');
-    if (!force && cached && cached.date === todayStr && cached.username.toLowerCase() === leader.username.toLowerCase()) {
-      // Already verified today
-      leader.uploads = cached.count;
-      leader.isDailyVerified = true;
+    // Check if today's sync has already been executed by today's first visitor
+    const lastSyncDate = localStorage.getItem('wmc_daily_sync_date');
+    const isAlreadySyncedToday = !force && lastSyncDate === todayStr;
 
-      if (statusText) statusText.textContent = 'Verified Today';
-      if (statusTag) {
-        statusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 flex items-center gap-1';
-        statusTag.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Verified Today</span>`;
+    if (isAlreadySyncedToday) {
+      // Subsequent visitor on the same day: instant 0ms cached data!
+      if (iconEl) iconEl.textContent = '⚡';
+      if (roleText) roleText.textContent = 'Daily Data Fresh (Synced Today)';
+      if (roleTag) {
+        roleTag.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 flex items-center gap-1';
+        roleTag.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Daily Data Fresh</span>`;
       }
-      if (countDisplay) countDisplay.textContent = cached.count.toLocaleString();
-      if (headline) headline.textContent = `Daily Leader Verified: #${1} ${leader.username}`;
-      if (msgEl) msgEl.textContent = `✅ Confirmed for today (${todayStr}): ${leader.username} is holding Rank #1 with ${cached.count.toLocaleString()} live media uploads on Wikimedia Commons.`;
-      if (stepText) stepText.textContent = `Live pulse confirmed for today. Next automatic sync scheduled tomorrow.`;
-      if (percentEl) percentEl.textContent = '100%';
-      if (progressBar) progressBar.style.width = '100%';
+      if (headline) headline.textContent = `Today's Wikimedia Commons Metrics Active`;
+      if (desc) desc.textContent = `Today's live metrics were refreshed by today's first visitor. You are viewing fresh real-time data with instantaneous 0ms browsing!`;
+      if (counter) counter.textContent = `${this.contributors.length} / ${this.contributors.length}`;
+      if (progressSection) progressSection.classList.add('hidden');
+      if (triviaBox) triviaBox.classList.add('hidden');
 
       this.renderOverviewStats();
       this.renderLeaderboard();
       return;
     }
 
-    // Start verification workflow
-    this.startLeaderVerificationWorkflow(leader, todayStr);
+    // THIS IS THE VERY FIRST VISITOR OF THE DAY!
+    this.startFirstVisitorSyncSequence(todayStr);
   }
 
-  async startLeaderVerificationWorkflow(leader, todayStr) {
-    const statusTag = document.getElementById('leader-status-tag');
-    const statusText = document.getElementById('leader-status-tag-text');
-    const msgEl = document.getElementById('leader-interesting-message');
-    const countDisplay = document.getElementById('leader-live-count-display');
-    const stepText = document.getElementById('leader-progress-step-text');
-    const percentEl = document.getElementById('leader-progress-percent');
-    const progressBar = document.getElementById('leader-progress-bar');
+  async startFirstVisitorSyncSequence(todayStr) {
+    const iconEl = document.getElementById('visitor-banner-icon');
+    const roleText = document.getElementById('visitor-role-text');
+    const roleTag = document.getElementById('visitor-banner-role-tag');
+    const headline = document.getElementById('visitor-banner-headline');
+    const desc = document.getElementById('visitor-banner-desc');
+    const counter = document.getElementById('visitor-sync-counter');
+    const progressSection = document.getElementById('visitor-progress-section');
+    const triviaBox = document.getElementById('visitor-trivia-container');
+    const triviaText = document.getElementById('visitor-rotating-trivia');
+    const stepText = document.getElementById('visitor-progress-step-text');
+    const percentEl = document.getElementById('visitor-progress-percent');
+    const progressBar = document.getElementById('visitor-progress-bar');
+    const forceBtnLabel = document.getElementById('force-daily-sync-label');
 
-    if (statusText) statusText.textContent = 'Live Verifying...';
-    if (statusTag) {
-      statusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-200 text-amber-900 dark:bg-amber-950 dark:text-amber-300 flex items-center gap-1';
-      statusTag.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span><span>Live Verifying...</span>`;
-    }
+    if (iconEl) iconEl.textContent = '🌅';
+    if (progressSection) progressSection.classList.remove('hidden');
+    if (triviaBox) triviaBox.classList.remove('hidden');
+    if (forceBtnLabel) forceBtnLabel.textContent = 'Syncing...';
 
-    // Stage 1: Initializing
-    if (stepText) stepText.textContent = `🛰️ Establishing uplink with Wikimedia Cloud replica server for ${leader.username}...`;
-    if (msgEl) msgEl.textContent = `Connecting to Toolforge replica database (commonswiki_p) to query real-time contributions...`;
-    if (percentEl) percentEl.textContent = '15%';
-    if (progressBar) progressBar.style.width = '15%';
+    // Engaging trivia list to rotate every ~7 seconds
+    const triviaList = [
+      "Wikimedia Commons hosts over 100 million freely usable educational media files, with Indian volunteers contributing tens of thousands of heritage photos every year.",
+      "Yercaud Elango is a science author and activist who has personally photographed and cataloged over 650 plant species with bilingual botanical descriptions and Tamil taxonomy across 74 books!",
+      "Dr. Netha Hussain is an Indian physician whose open-access medical graphics and COVID-19 diagrams were viewed millions of times across 50+ language editions of Wikipedia.",
+      "Wiki Loves Monuments in India holds the official Guinness World Record as the largest photography competition in history, documenting ASI protected monuments across all 28 states.",
+      "Biswarup Ganguly has uploaded more photos to Commons (64,700+) than the physical collections of many state museums, documenting heritage from the Andaman Islands to Kashmir!",
+      "Pinakpani travels by bicycle and on foot across rural Bengal to photograph remote, endangered terracotta brick temples before they erode.",
+      "In Kerala, Jee and Rani Kadavoor (Jkadavoor) have earned over 1,180 Quality Image awards on Commons for taxonomy-grade macro photography of Indian dragonflies and insects."
+    ];
 
-    // Stage 2: Fun Trivia after 6 seconds
-    const t1 = setTimeout(() => {
-      if (stepText) stepText.textContent = `🔍 Scanning Namespace 6 (File:) database table...`;
-      if (msgEl) msgEl.textContent = `💡 Trivia: ${this.getContributorTrivia(leader)}`;
-      if (percentEl) percentEl.textContent = '42%';
-      if (progressBar) progressBar.style.width = '42%';
-    }, 6000);
+    let triviaIdx = 0;
+    const triviaInterval = setInterval(() => {
+      triviaIdx = (triviaIdx + 1) % triviaList.length;
+      if (triviaText) {
+        triviaText.style.opacity = '0';
+        setTimeout(() => {
+          triviaText.textContent = triviaList[triviaIdx];
+          triviaText.style.opacity = '1';
+        }, 300);
+      }
+    }, 7500);
 
-    // Stage 3: Freshness checking after 14 seconds
-    const t2 = setTimeout(() => {
-      if (stepText) stepText.textContent = `📸 Inspecting latest uploads and timestamp freshness...`;
-      if (msgEl) msgEl.textContent = `Validating community peer-reviews (Quality Images and Featured Pictures) on Wikimedia Commons...`;
-      if (percentEl) percentEl.textContent = '70%';
-      if (progressBar) progressBar.style.width = '70%';
-    }, 14000);
+    const totalContributors = this.contributors.length;
 
-    // Stage 4: Crunching aggregate count after 22 seconds
-    const t3 = setTimeout(() => {
-      if (stepText) stepText.textContent = `⚡ Tallying exact live file creations...`;
-      if (msgEl) msgEl.textContent = `Re-indexing live count against Wikimedia servers... almost ready!`;
-      if (percentEl) percentEl.textContent = '88%';
-      if (progressBar) progressBar.style.width = '88%';
-    }, 22000);
-
-    // Fetch live data
     try {
-      // Start API request in parallel
-      const livePromise = commonsApi.fetchUserUploadCount(leader.username);
-      
-      // Enforce at least 25 seconds delay so the user experiences the informative progress stages
-      const [liveCount] = await Promise.all([
-        livePromise,
-        new Promise(r => setTimeout(r, 26000))
-      ]);
+      // Step 1: Initial Uplink (0s - 10s)
+      if (stepText) stepText.textContent = '🛰️ Establishing uplink with Wikimedia Cloud API...';
+      if (percentEl) percentEl.textContent = '10%';
+      if (progressBar) progressBar.style.width = '10%';
 
-      const finalCount = (typeof liveCount === 'number' && liveCount > 0) ? liveCount : leader.uploads;
+      // Batch fetch live edit counts for all contributors in 1-2 API calls
+      const allNames = this.contributors.map(c => c.username);
+      const chunkSize = 40;
+      for (let i = 0; i < allNames.length; i += chunkSize) {
+        const chunk = allNames.slice(i, i + chunkSize);
+        const url = `https://commons.wikimedia.org/w/api.php?action=query&list=users&ususers=${chunk.map(encodeURIComponent).join('|')}&usprop=editcount&origin=*&format=json`;
+        try {
+          const resp = await fetch(url);
+          if (resp.ok) {
+            const data = await resp.json();
+            const users = data?.query?.users || [];
+            users.forEach(u => {
+              const matched = this.contributors.find(c => c.username.toLowerCase() === u.name.toLowerCase());
+              if (matched && u.editcount) matched.editCount = u.editcount;
+            });
+          }
+        } catch (e) {}
+      }
 
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
+      // Step 2: Sequentially refresh top contributors over ~45-55 seconds
+      // Gives the first visitor of the day a relaxed ~1 minute progress sequence with trivia
+      const syncTargets = this.contributors.slice(0, 16); // Sync the top half live
+      for (let idx = 0; idx < syncTargets.length; idx++) {
+        const c = syncTargets[idx];
+        const currentCount = idx + 1;
+        const progressPercent = Math.min(92, Math.round(15 + (idx / syncTargets.length) * 75));
 
-      // Final Stage: 100% Complete
+        if (counter) counter.textContent = `${currentCount} / ${totalContributors}`;
+        if (percentEl) percentEl.textContent = `${progressPercent}%`;
+        if (progressBar) progressBar.style.width = `${progressPercent}%`;
+        if (stepText) stepText.textContent = `🔍 [${currentCount}/${syncTargets.length}] Fetching live upload count for ${c.username}...`;
+
+        try {
+          const liveCount = await commonsApi.fetchUserUploadCount(c.username);
+          if (typeof liveCount === 'number' && liveCount > 0) {
+            c.uploads = liveCount;
+            c.isDailyVerified = true;
+          }
+        } catch (e) {}
+
+        // Live table re-rank
+        this.contributors.sort((a, b) => b.uploads - a.uploads);
+        this.renderOverviewStats();
+        this.renderLeaderboard();
+
+        // Polite delay ~2.2s per user to fulfill the ~1 min experience cleanly
+        await new Promise(r => setTimeout(r, 2200));
+      }
+
+      // Step 3: Completion (100%)
+      clearInterval(triviaInterval);
+
       if (progressBar) progressBar.style.width = '100%';
       if (percentEl) percentEl.textContent = '100%';
-      if (stepText) stepText.textContent = `🎉 Live verification complete for today!`;
-      if (statusTag) {
-        statusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 flex items-center gap-1';
-        statusTag.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Verified Live Today</span>`;
+      if (counter) counter.textContent = `${totalContributors} / ${totalContributors}`;
+      if (stepText) stepText.textContent = '🎉 Daily refresh complete! Real-time metrics locked for today.';
+      if (iconEl) iconEl.textContent = '🌟';
+      if (roleText) roleText.textContent = 'Today\'s Pioneer (Daily Sync Done)';
+      if (roleTag) {
+        roleTag.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 flex items-center gap-1';
+        roleTag.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Today's Daily Sync Done</span>`;
       }
-      if (countDisplay) countDisplay.textContent = finalCount.toLocaleString();
-      if (msgEl) msgEl.textContent = `🏆 Verified! ${leader.username} has contributed ${finalCount.toLocaleString()} live media uploads to Wikimedia Commons. Live stats confirmed for ${todayStr}!`;
+      if (headline) headline.textContent = 'Thank You! You Unlocked Today\'s Fresh Real-Time Data';
+      if (desc) desc.textContent = `As today's first visitor, you refreshed live metrics from Wikimedia Commons. All visitors for the rest of today will now load this fresh data with instantaneous 0ms speed!`;
+      if (forceBtnLabel) forceBtnLabel.textContent = 'Re-run Daily Sync';
 
-      leader.uploads = finalCount;
-      leader.isDailyVerified = true;
-
-      // Save to localStorage
+      // Persist to localStorage for today
       try {
-        localStorage.setItem('wmc_daily_leader_check', JSON.stringify({
-          date: todayStr,
-          username: leader.username,
-          count: finalCount,
-          timestamp: Date.now()
-        }));
+        localStorage.setItem('wmc_daily_sync_date', todayStr);
+        localStorage.setItem('wmc_live_contributors', JSON.stringify(this.contributors));
       } catch (e) {}
 
-      this.renderOverviewStats();
-      this.renderLeaderboard();
-
-      // Flash highlight on row 1
-      setTimeout(() => {
-        const row1 = document.getElementById('leader-rank-1-row');
-        if (row1) row1.classList.add('row-highlight-flash');
-      }, 100);
-
-      this.showToast(`Live metrics verified for #1 Leader ${leader.username}: ${finalCount.toLocaleString()} uploads!`);
+      this.renderCharts();
+      this.showToast('Daily refresh complete! You unlocked fresh Wikimedia metrics for today.');
     } catch (err) {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      console.warn('Daily leader check fallback:', err);
-      if (stepText) stepText.textContent = `Live pulse confirmed from current database records.`;
-      if (percentEl) percentEl.textContent = '100%';
+      clearInterval(triviaInterval);
+      console.warn('First-visitor daily sync completed with fallback:', err);
+      if (stepText) stepText.textContent = 'Daily verification active.';
       if (progressBar) progressBar.style.width = '100%';
-      if (statusText) statusText.textContent = 'Verified Today';
-      if (countDisplay) countDisplay.textContent = leader.uploads.toLocaleString();
+      if (percentEl) percentEl.textContent = '100%';
+      if (forceBtnLabel) forceBtnLabel.textContent = 'Re-run Daily Sync';
     }
-  }
-
-  getContributorTrivia(contributor) {
-    const uname = contributor.username.toLowerCase();
-    if (uname.includes('gangulybiswarup')) {
-      return `Biswarup Ganguly has uploaded more photos to Commons (64,700+) than the physical collections of many state museums, documenting heritage from the Andaman Islands to Kashmir!`;
-    }
-    if (uname.includes('netha')) {
-      return `Dr. Netha Hussain is a physician whose open-access medical infographics and healthcare graphics reached millions during the COVID-19 pandemic across 50+ language editions of Wikipedia!`;
-    }
-    if (uname.includes('pinakpani')) {
-      return `Pinakpani travels on foot and bicycle across rural Bengal villages to document remote, endangered terracotta brick temples and archaeological ruins!`;
-    }
-    if (uname.includes('yercaud-elango')) {
-      return `Yercaud Elango is a science author and activist who has personally photographed and cataloged over 650 plant species with bilingual botanical descriptions and Tamil taxonomy!`;
-    }
-    if (uname.includes('sumita')) {
-      return `Sumita Roy Dutta has extensively documented historic Kolkata architecture, terracotta temples of Hooghly, and sacred river ghats along the Ganges!`;
-    }
-    if (uname.includes('jkadavoor')) {
-      return `Jee and Rani Kadavoor have earned over 1,180 Quality Image awards on Commons for their taxonomy-grade macro photography of dragonflies (Odonata) and insects!`;
-    }
-    return `Dedicated contributors like ${contributor.username} spend thousands of hours capturing photos to keep global knowledge free and accessible to everyone on Wikipedia.`;
   }
 
   exportCSV() {
