@@ -473,6 +473,34 @@ class CommonsMetricsApp {
     return list;
   }
 
+  getContributorAvatarHtml(c, size = 'md') {
+    const sizeMap = {
+      sm: { box: 'w-7 h-7', text: 'text-[10px]', dot: 'w-2 h-2 -bottom-0.5 -right-0.5' },
+      md: { box: 'w-10 h-10', text: 'text-xs', dot: 'w-2.5 h-2.5 -bottom-0.5 -right-0.5' },
+      lg: { box: 'w-12 h-12', text: 'text-sm', dot: 'w-3 h-3 -bottom-0.5 -right-0.5' },
+      xl: { box: 'w-16 h-16', text: 'text-base', dot: 'w-3.5 h-3.5 -bottom-0.5 -right-0.5' }
+    };
+    const s = sizeMap[size] || sizeMap.md;
+    const username = c.username || 'Contributor';
+    const initials = username.replace(/[^a-zA-Z0-9]/g, '').slice(0, 2).toUpperCase() || 'WM';
+
+    if (c.hasProfilePhoto && c.avatar) {
+      return `
+        <div class="relative group shrink-0" title="${username} (Profile photo on Wikimedia Commons)">
+          <img src="${c.avatar}" alt="${username}" class="${s.box} rounded-full object-cover border-2 border-slate-200 dark:border-slate-700 shadow-sm transition-transform duration-200 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'${s.box} rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300\\'>${initials}</div>';" />
+          <span class="absolute ${s.dot} rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" title="Profile portrait verified on Commons"></span>
+        </div>
+      `;
+    }
+
+    // Contributor has no personal portrait uploaded on Commons profile
+    return `
+      <div class="${s.box} rounded-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 border-2 border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold ${s.text} text-slate-600 dark:text-slate-300 shadow-sm shrink-0 select-none" title="${username} (No portrait on Commons profile)">
+        ${initials}
+      </div>
+    `;
+  }
+
   renderLeaderboard() {
     const list = this.getFilteredContributors();
     const countEl = document.getElementById('filtered-count-badge');
@@ -533,7 +561,7 @@ class CommonsMetricsApp {
           </td>
           <td class="py-4 px-4">
             <div class="flex items-center gap-3">
-              <img src="${c.avatar}" alt="${c.username}" class="w-11 h-11 rounded-full object-cover border border-slate-200 dark:border-slate-700 shadow-sm" onerror="this.src='assets/logo.svg'" />
+              ${this.getContributorAvatarHtml(c, 'md')}
               <div>
                 <div class="flex items-center gap-2">
                   <button class="font-bold text-slate-900 dark:text-white hover:text-primary transition-colors contributor-name-btn text-left" data-username="${c.username}">
@@ -603,7 +631,7 @@ class CommonsMetricsApp {
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
               <div class="flex items-center gap-3">
-                <img src="${c.avatar}" alt="${c.username}" class="w-12 h-12 rounded-full object-cover border border-slate-200 dark:border-slate-700 shadow-sm" onerror="this.src='assets/logo.svg'" />
+                ${this.getContributorAvatarHtml(c, 'lg')}
                 <div>
                   <h4 class="font-bold text-slate-900 dark:text-white hover:text-primary cursor-pointer contributor-name-btn" data-username="${c.username}">${c.username}</h4>
                   ${c.realName ? `<p class="text-xs text-slate-500 dark:text-slate-400">${c.realName}</p>` : ''}
@@ -794,7 +822,25 @@ class CommonsMetricsApp {
     if (titleEl) titleEl.textContent = username;
     if (commonsLinkEl) commonsLinkEl.href = `https://commons.wikimedia.org/wiki/User:${encodeURIComponent(username)}`;
     if (subtitleEl) subtitleEl.textContent = localData?.realName || 'Wikimedia Commons Contributor';
-    if (avatarEl) avatarEl.src = localData?.avatar || 'assets/logo.svg';
+    if (avatarEl) {
+      if (localData?.hasProfilePhoto && localData.avatar) {
+        avatarEl.src = localData.avatar;
+        avatarEl.className = 'w-16 h-16 rounded-2xl object-cover border-2 border-emerald-500 shadow-sm';
+        avatarEl.title = 'Verified profile portrait on Wikimedia Commons';
+      } else {
+        avatarEl.src = 'assets/logo.svg';
+        avatarEl.className = 'w-16 h-16 rounded-2xl object-cover border-2 border-primary/20 shadow-sm p-1.5 bg-slate-100 dark:bg-slate-800';
+        avatarEl.title = 'Wikimedia Contributor';
+        // Dynamically inspect User: page for portrait
+        commonsApi.fetchUserProfileImage(username).then(photoUrl => {
+          if (photoUrl && avatarEl) {
+            avatarEl.src = photoUrl;
+            avatarEl.className = 'w-16 h-16 rounded-2xl object-cover border-2 border-emerald-500 shadow-sm';
+            avatarEl.title = 'Verified profile portrait on Wikimedia Commons';
+          }
+        });
+      }
+    }
     if (uploadsCountEl) uploadsCountEl.textContent = localData ? localData.uploads.toLocaleString() : 'Fetching...';
     if (editCountEl) editCountEl.textContent = localData ? localData.editCount.toLocaleString() : 'Fetching...';
     if (regDateEl) regDateEl.textContent = localData?.registration || 'Fetching...';
@@ -897,12 +943,20 @@ class CommonsMetricsApp {
       if (tbody) {
         tbody.innerHTML = '';
         data.leaderboard.forEach((row, idx) => {
+          const matched = this.contributors.find(c => c.username.toLowerCase() === row.user.toLowerCase());
+          const avatarHtml = matched 
+            ? this.getContributorAvatarHtml(matched, 'sm')
+            : `<span class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-600 dark:text-slate-300 shrink-0 select-none">${row.user.replace(/[^a-zA-Z0-9]/g, '').slice(0, 2).toUpperCase() || 'WM'}</span>`;
+
           const tr = document.createElement('tr');
           tr.className = 'border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/40';
           tr.innerHTML = `
             <td class="py-3 px-4 font-bold text-center">${idx + 1}</td>
             <td class="py-3 px-4 font-medium text-slate-900 dark:text-white">
-              <button class="hover:text-primary contributor-name-btn" data-username="${row.user}">${row.user}</button>
+              <div class="flex items-center gap-2.5">
+                ${avatarHtml}
+                <button class="hover:text-primary contributor-name-btn font-semibold text-left" data-username="${row.user}">${row.user}</button>
+              </div>
             </td>
             <td class="py-3 px-4 font-bold text-primary">${row.count}</td>
             <td class="py-3 px-4 text-sm text-slate-500">${(row.totalSize / (1024 * 1024)).toFixed(2)} MB</td>
@@ -1145,7 +1199,10 @@ class CommonsMetricsApp {
     };
 
     const updateStreamCard = (contributor, uploads, edits, latestFile) => {
-      if (streamAvatar) streamAvatar.src = contributor.avatar || 'assets/logo.svg';
+      if (streamAvatar) {
+        streamAvatar.src = (contributor.hasProfilePhoto && contributor.avatar) ? contributor.avatar : 'assets/logo.svg';
+        streamAvatar.title = contributor.hasProfilePhoto ? `${contributor.username} — Profile photo` : `${contributor.username} — Contributor`;
+      }
       if (streamUsername) streamUsername.textContent = contributor.username;
       if (streamState) streamState.textContent = contributor.state || 'India';
       if (streamLatestFile) streamLatestFile.textContent = latestFile || (contributor.primaryThemes && contributor.primaryThemes[0]) || 'Media file';

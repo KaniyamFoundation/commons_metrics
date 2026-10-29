@@ -252,6 +252,53 @@ export class CommonsApiClient {
       mimeDistribution: mimeMap
     };
   }
+
+  /**
+   * Fetches user profile portrait image from User: page if available on Commons.
+   */
+  async fetchUserProfileImage(username) {
+    const cacheKey = `user_img_${username}`;
+    const cached = this.getCache(cacheKey);
+    if (cached !== null) return cached;
+
+    try {
+      const url = `${API_BASE}?action=parse&page=User:${encodeURIComponent(username)}&prop=images&origin=*&format=json`;
+      const resp = await fetch(url);
+      if (!resp.ok) return null;
+      const data = await resp.json();
+      const images = data?.parse?.images || [];
+      
+      const candidate = images.find(img => {
+        const lower = img.toLowerCase();
+        if (lower.endsWith('.svg')) return false;
+        if (['logo', 'flag', 'icon', 'badge', 'stub', 'wikimedia', 'barnstar', 'c-by', 'cc-', 'medal', 'award'].some(k => lower.includes(k))) return false;
+        return lower.endsWith('.jpg') || lower.endsWith('.jpeg') || lower.endsWith('.png') || lower.endsWith('.webp');
+      });
+
+      if (!candidate) {
+        this.setCache(cacheKey, null);
+        return null;
+      }
+
+      const infoUrl = `${API_BASE}?action=query&titles=File:${encodeURIComponent(candidate)}&prop=imageinfo&iiprop=url&iiurlwidth=160&origin=*&format=json`;
+      const infoResp = await fetch(infoUrl);
+      if (!infoResp.ok) return null;
+      const infoData = await infoResp.json();
+      const pages = infoData?.query?.pages || {};
+      for (const pid in pages) {
+        const thumb = pages[pid]?.imageinfo?.[0]?.thumburl;
+        if (thumb) {
+          this.setCache(cacheKey, thumb);
+          return thumb;
+        }
+      }
+    } catch (e) {
+      // Fallback
+    }
+
+    this.setCache(cacheKey, null);
+    return null;
+  }
 }
 
 export const commonsApi = new CommonsApiClient();
