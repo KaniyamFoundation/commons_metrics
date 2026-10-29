@@ -77,11 +77,13 @@ class CommonsMetricsApp {
 
   async loadData() {
     try {
+      // Force cache-busting on fetch to ensure latest verified profile photos are retrieved
+      const cacheBuster = `?v=3.1_${Date.now()}`;
       const [cResp, campResp, benchResp, presResp] = await Promise.all([
-        fetch('data/contributors_india.json'),
-        fetch('data/campaigns_india.json'),
-        fetch('data/global_benchmarks.json'),
-        fetch('data/category_presets.json')
+        fetch(`data/contributors_india.json${cacheBuster}`),
+        fetch(`data/campaigns_india.json${cacheBuster}`),
+        fetch(`data/global_benchmarks.json${cacheBuster}`),
+        fetch(`data/category_presets.json${cacheBuster}`)
       ]);
 
       this.contributors = await cResp.json();
@@ -91,10 +93,28 @@ class CommonsMetricsApp {
 
       // Check if user previously performed a live sync in this browser
       try {
+        const CURRENT_CACHE_VERSION = 'v3_photos_verified';
+        // Auto-purge any stale legacy cache that predates profile portraits
+        if (localStorage.getItem('wmc_cache_version') !== CURRENT_CACHE_VERSION) {
+          localStorage.removeItem('wmc_live_contributors');
+          localStorage.removeItem('wmc_daily_sync_date');
+          localStorage.setItem('wmc_cache_version', CURRENT_CACHE_VERSION);
+        }
+
         const live = JSON.parse(localStorage.getItem('wmc_live_contributors') || 'null');
         const lastSync = localStorage.getItem('wmc_last_synced');
         if (Array.isArray(live) && live.length > 0) {
-          this.contributors = live;
+          // Merge live upload/edit counts ONLY — NEVER overwrite authoritative profile photos or metadata!
+          const liveMap = new Map(live.map(l => [l.username.toLowerCase(), l]));
+          this.contributors.forEach(c => {
+            const cached = liveMap.get(c.username.toLowerCase());
+            if (cached) {
+              if (typeof cached.uploads === 'number') c.uploads = cached.uploads;
+              if (typeof cached.editCount === 'number') c.editCount = cached.editCount;
+              if (cached.isDailyVerified) c.isDailyVerified = true;
+            }
+          });
+
           const statusText = document.getElementById('sync-status-text');
           if (statusText && lastSync) {
             const timeAgo = Math.round((Date.now() - new Date(lastSync).getTime()) / (60 * 1000));
@@ -484,11 +504,15 @@ class CommonsMetricsApp {
     const username = c.username || 'Contributor';
     const initials = username.replace(/[^a-zA-Z0-9]/g, '').slice(0, 2).toUpperCase() || 'WM';
 
-    if (c.hasProfilePhoto && c.avatar) {
+    const hasPhoto = Boolean(c.hasProfilePhoto || (c.avatar && typeof c.avatar === 'string' && c.avatar.startsWith('http') && !c.avatar.includes('logo.svg')));
+    const avatarUrl = c.avatar;
+
+    if (hasPhoto && avatarUrl) {
       return `
         <div class="relative group shrink-0" title="${username} (Profile photo on Wikimedia Commons)">
-          <img src="${c.avatar}" alt="${username}" class="${s.box} rounded-full object-cover border-2 border-slate-200 dark:border-slate-700 shadow-sm transition-transform duration-200 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'${s.box} rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300\\'>${initials}</div>';" />
-          <span class="absolute ${s.dot} rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" title="Profile portrait verified on Commons"></span>
+          <img src="${avatarUrl}" alt="${username}" class="${s.box} rounded-full object-cover border-2 border-slate-200 dark:border-slate-700 shadow-sm transition-transform duration-200 group-hover:scale-105" referrerpolicy="no-referrer" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';" />
+          <div class="${s.box} rounded-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 border-2 border-slate-200 dark:border-slate-700 hidden items-center justify-center font-bold ${s.text} text-slate-600 dark:text-slate-300 shadow-sm shrink-0 select-none">${initials}</div>
+          <span class="absolute ${s.dot} rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900 pointer-events-none" title="Profile portrait verified on Commons"></span>
         </div>
       `;
     }
