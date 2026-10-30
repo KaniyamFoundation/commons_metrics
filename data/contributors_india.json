@@ -88,8 +88,8 @@
     "username": "Pinakpani",
     "realName": "Pinakpani",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Pinakpani_on_Day_0_of_ATTT_2025.jpg/250px-Pinakpani_on_Day_0_of_ATTT_2025.jpg",
-    "uploads": 31048,
-    "editCount": 72410,
+    "uploads": 31247,
+    "editCount": 72896,
     "registration": "2016-11-13",
     "state": "West Bengal",
     "city": "Kolkata",
@@ -136,8 +136,8 @@
     "username": "Yercaud-elango",
     "realName": "Yercaud Elango",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Yercaud_elango-science_writer-1-yercaud-salem-India.jpg/250px-Yercaud_elango-science_writer-1-yercaud-salem-India.jpg",
-    "uploads": 26190,
-    "editCount": 36477,
+    "uploads": 26201,
+    "editCount": 36499,
     "registration": "2014-11-22",
     "state": "Tamil Nadu",
     "city": "Yercaud, Salem",
@@ -169,8 +169,8 @@
     "username": "Sumita Roy Dutta",
     "realName": "Sumita Roy Dutta",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/User_Sumita_Roy_Dutta_At_Phortse_On_the_way_to_EBC.jpg/250px-User_Sumita_Roy_Dutta_At_Phortse_On_the_way_to_EBC.jpg",
-    "uploads": 22379,
-    "editCount": 35251,
+    "uploads": 22380,
+    "editCount": 35253,
     "registration": "2015-06-15",
     "state": "West Bengal",
     "city": "Kolkata",
@@ -397,8 +397,11 @@
     "city": "Kozhikode",
     "region": "Southern India",
     "groups": [
-      "autopatrolled",
-      "filemover"
+      "event-organizer",
+      "filemover",
+      "patroller",
+      "temporary-account-viewer",
+      "upwizcampeditors"
     ],
     "qualityImages": 165,
     "valuedImages": 50,
@@ -423,15 +426,18 @@
     "username": "Suyash.dwivedi",
     "realName": "Suyash Dwivedi",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Suyash_Dwivedi_01%28cropped%29.jpg/250px-Suyash_Dwivedi_01%28cropped%29.jpg",
-    "uploads": 7829,
-    "editCount": 14800,
+    "uploads": 7832,
+    "editCount": 180912,
     "registration": "2013-08-05",
     "state": "Madhya Pradesh",
     "city": "Bhopal / Gwalior",
     "region": "Central India",
     "groups": [
       "autopatrolled",
-      "filemover"
+      "event-organizer",
+      "filemover",
+      "ipblock-exempt",
+      "upwizcampeditors"
     ],
     "qualityImages": 175,
     "valuedImages": 42,
@@ -528,6 +534,46 @@
     "hasProfilePhoto": true
   },
   {
+    "username": "Sourabh.biswas003",
+    "realName": "Sourabh Biswas",
+    "avatar": null,
+    "uploads": 5632,
+    "editCount": 11337,
+    "registration": "2018-05-14",
+    "state": "West Bengal",
+    "city": "Siliguri",
+    "region": "Eastern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 142,
+    "valuedImages": 29,
+    "featuredPictures": 3,
+    "primaryThemes": [
+      "Sunbirds & Pollinators",
+      "North Bengal Avifauna",
+      "Dooars Wildlife",
+      "Wild Orchids"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Quality Images Candidate"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 15.3,
+    "recentUploads": [
+      {
+        "title": "Crimson Sunbird Feeding Nectar",
+        "fileName": "Crimson_Sunbird_Feeding_Nectar.jpg",
+        "timestamp": "2025-04-09",
+        "sizeMB": 6.7,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Renowned for vivid avian action photography in the Himalayan foothills and Dooars region.",
+    "hasProfilePhoto": false
+  },
+  {
     "username": "Yakshitha",
     "realName": "Yakshitha",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Yakshitha_-_Tulu_Wikimedian_at_Wikimania_2025.jpg/250px-Yakshitha_-_Tulu_Wikimedian_at_Wikimania_2025.jpg",
@@ -564,7 +610,7 @@
     "realName": "I. Mahesh",
     "avatar": null,
     "uploads": 5462,
-    "editCount": 37936,
+    "editCount": 37952,
     "registration": "2015-09-16",
     "state": "Andhra Pradesh / Telangana",
     "city": "Bhimavaram",
@@ -614,8 +660,7 @@
     "city": "Chennai / Thanjavur",
     "region": "Southern India",
     "groups": [
-      "autopatrolled",
-      "filemover"
+      "autopatrolled"
     ],
     "qualityImages": 120,
     "valuedImages": 34,
@@ -680,7 +725,7 @@
     "city": "Bhubaneswar / Cuttack",
     "region": "Eastern India",
     "groups": [
-      "autopatrolled"
+      "patroller"
     ],
     "qualityImages": 85,
     "valuedImages": 24,
@@ -702,11 +747,52 @@
     "hasProfilePhoto": true
   },
   {
+    "username": "Pavanaja",
+    "realName": "Dr. U. B. Pavanaja",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pavanaja-UB.jpg/250px-Pavanaja-UB.jpg",
+    "uploads": 4298,
+    "editCount": 7398,
+    "registration": "2011-01-16",
+    "state": "Karnataka",
+    "city": "Mangaluru / Bengaluru",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 48,
+    "valuedImages": 15,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Coastal Karnataka Heritage",
+      "Jain Basadis of Moodabidri",
+      "Tulu Culture",
+      "Western Ghats",
+      "Monuments"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments Karnataka",
+      "Kannada & Tulu WikiProjects"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 24.3,
+    "recentUploads": [
+      {
+        "title": "Moodabidri Thousand Pillars Jain Basadi",
+        "fileName": "Moodabidri_Thousand_Pillars_Jain_Basadi.jpg",
+        "timestamp": "2024-02-14",
+        "sizeMB": 8.1,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Pioneer of Indian language computing and extensive documenter of coastal Karnataka's ancient Jain and Hindu monuments.",
+    "hasProfilePhoto": true
+  },
+  {
     "username": "Tagooty",
     "realName": "Tagooty",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_A_Gonsalves_Sony_Camera_Windermere_Ooty_Mar21_IMG_2338.jpg/250px-Timothy_A_Gonsalves_Sony_Camera_Windermere_Ooty_Mar21_IMG_2338.jpg",
-    "uploads": 4103,
-    "editCount": 59337,
+    "uploads": 4120,
+    "editCount": 59516,
     "registration": "2019-09-08",
     "state": "Karnataka",
     "city": "Bengaluru",
@@ -744,133 +830,46 @@
     "hasProfilePhoto": true
   },
   {
-    "username": "Subhrajyoti07",
-    "realName": "Subhrajyoti Mukherjee",
-    "avatar": null,
-    "uploads": 3500,
-    "editCount": 4150,
-    "registration": "2017-06-23",
-    "state": "West Bengal",
-    "city": "Kolkata",
-    "region": "Eastern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 285,
-    "valuedImages": 52,
-    "featuredPictures": 5,
-    "primaryThemes": [
-      "Monuments of National Importance",
-      "Colonial Kolkata",
-      "ASI Monuments",
-      "Night Photography",
-      "Palaces"
-    ],
-    "campaigns": [
-      "Wiki Loves Monuments India",
-      "Wiki Explores Hooghly"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 45.8,
-    "recentUploads": [
-      {
-        "title": "Victoria Memorial Hall Kolkata Night View",
-        "fileName": "Victoria_Memorial_Hall_Kolkata_Night_View.jpg",
-        "timestamp": "2024-09-12",
-        "sizeMB": 14.2,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Award-winning contributor to Wiki Loves Monuments India; renowned for balanced long-exposure architectural photographs.",
-    "hasProfilePhoto": false
-  },
-  {
-    "username": "Kuldeepburjbhalaike",
-    "realName": "Kuldeep Singh",
-    "avatar": null,
-    "uploads": 3400,
-    "editCount": 7517,
-    "registration": "2020-03-17",
+    "username": "Satdeep Gill",
+    "realName": "Satdeep Gill",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gill%2C_Satdeep_Jan_2020.jpg/250px-Gill%2C_Satdeep_Jan_2020.jpg",
+    "uploads": 4050,
+    "editCount": 15845,
+    "registration": "2009-10-26",
     "state": "Punjab",
-    "city": "Mansa",
+    "city": "Patiala",
     "region": "Northern India",
     "groups": [
-      "autopatrolled",
-      "filemover",
-      "upwizcampeditors"
+      "sysop"
     ],
-    "qualityImages": 120,
-    "valuedImages": 32,
-    "featuredPictures": 2,
+    "qualityImages": 65,
+    "valuedImages": 22,
+    "featuredPictures": 3,
     "primaryThemes": [
-      "Gurdwaras of Punjab",
-      "Rural Punjab Architecture",
-      "Sikh Heritage",
-      "Agricultural Landscapes",
-      "Traditional Implements"
+      "Historical Gurdwaras",
+      "Punjabi Manuscripts",
+      "GLAM Punjab",
+      "Rural Life",
+      "Heritage Gates of Patiala"
     ],
     "campaigns": [
-      "Wiki Loves Monuments Punjab",
-      "Wiki Loves Folklore",
-      "Punjabi Wikimedians"
+      "GLAM Punjab",
+      "Wiki Loves Monuments",
+      "Punjabi Wikisource"
     ],
     "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 38.2,
+    "estStorageGB": 48.6,
     "recentUploads": [
       {
-        "title": "Gurdwara Nanaksar Sahib in Punjab",
-        "fileName": "Gurdwara_Nanaksar_Sahib_in_Punjab.jpg",
-        "timestamp": "2025-11-04",
-        "sizeMB": 9.4,
+        "title": "Gurdwara Fatehgarh Sahib Illumination",
+        "fileName": "Gurdwara_Fatehgarh_Sahib_Illumination.jpg",
+        "timestamp": "2024-11-20",
+        "sizeMB": 10.5,
         "mime": "image/jpeg"
       }
     ],
-    "notableContributions": "Systematic documentation of historical and rural Gurdwaras across Malwa, Majha, and Doaba regions of Punjab.",
-    "hasProfilePhoto": false
-  },
-  {
-    "username": "Praveenp",
-    "realName": "Praveen P",
-    "avatar": null,
-    "uploads": 3120,
-    "editCount": 12670,
-    "registration": "2008-01-09",
-    "state": "Kerala",
-    "city": "Kannur",
-    "region": "Southern India",
-    "groups": [
-      "filemover",
-      "patroller",
-      "rollbacker"
-    ],
-    "qualityImages": 95,
-    "valuedImages": 38,
-    "featuredPictures": 4,
-    "primaryThemes": [
-      "Theyyam Folk Rituals",
-      "Northern Kerala Culture",
-      "Malayalam Heritage",
-      "Endemic Flora",
-      "Temples"
-    ],
-    "campaigns": [
-      "Wiki Loves Folklore",
-      "Wiki Loves Earth",
-      "Malayalam WikiProjects"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 32.7,
-    "recentUploads": [
-      {
-        "title": "Theyyam Performance in Kannur",
-        "fileName": "Theyyam_Performance_in_Kannur.jpg",
-        "timestamp": "2024-03-15",
-        "sizeMB": 8.7,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Longstanding Malayalam community leader; exceptional documentation of sacred groves and northern Kerala ritualistic dance forms.",
-    "hasProfilePhoto": false
+    "notableContributions": "Commons Administrator (Sysop); spearheaded Punjab institutional partnerships and digitization of rare Panjabi literature.",
+    "hasProfilePhoto": true
   },
   {
     "username": "Pranayraj1985",
@@ -944,54 +943,11 @@
     "hasProfilePhoto": true
   },
   {
-    "username": "Kiran Gopi",
-    "realName": "Kiran Gopi",
-    "avatar": null,
-    "uploads": 2820,
-    "editCount": 5213,
-    "registration": "2010-03-20",
-    "state": "Kerala",
-    "city": "Kochi",
-    "region": "Southern India",
-    "groups": [
-      "filemover",
-      "image-reviewer",
-      "rollbacker"
-    ],
-    "qualityImages": 320,
-    "valuedImages": 72,
-    "featuredPictures": 7,
-    "primaryThemes": [
-      "Avifauna (Birds of Western Ghats)",
-      "Wildlife Conservation",
-      "Butterflies",
-      "Forest Sanctuaries"
-    ],
-    "campaigns": [
-      "Wiki Loves Earth",
-      "Western Ghats Biodiversity",
-      "Quality Images"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 29.5,
-    "recentUploads": [
-      {
-        "title": "Malabar Grey Hornbill in Thattekad Bird Sanctuary",
-        "fileName": "Malabar_Grey_Hornbill_in_Thattekad.jpg",
-        "timestamp": "2023-12-18",
-        "sizeMB": 7.3,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Active Quality Image reviewer on Commons; authoritative bird photography spanning Thattekad, Periyar, and Wayanad reserves.",
-    "hasProfilePhoto": false
-  },
-  {
     "username": "Gnoeee",
     "realName": "Gopikrishnan (Gnoeee)",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jinoy_Tom_Jacob_at_WTS2024.jpg/250px-Jinoy_Tom_Jacob_at_WTS2024.jpg",
-    "uploads": 2240,
-    "editCount": 147626,
+    "uploads": 2689,
+    "editCount": 147637,
     "registration": "2010-09-10",
     "state": "Kerala",
     "city": "Thrissur",
@@ -1033,100 +989,19 @@
     "hasProfilePhoto": true
   },
   {
-    "username": "Pavanaja",
-    "realName": "Dr. U. B. Pavanaja",
-    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pavanaja-UB.jpg/250px-Pavanaja-UB.jpg",
-    "uploads": 2130,
-    "editCount": 7390,
-    "registration": "2011-01-16",
-    "state": "Karnataka",
-    "city": "Mangaluru / Bengaluru",
-    "region": "Southern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 48,
-    "valuedImages": 15,
-    "featuredPictures": 2,
-    "primaryThemes": [
-      "Coastal Karnataka Heritage",
-      "Jain Basadis of Moodabidri",
-      "Tulu Culture",
-      "Western Ghats",
-      "Monuments"
-    ],
-    "campaigns": [
-      "Wiki Loves Monuments Karnataka",
-      "Kannada & Tulu WikiProjects"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 24.3,
-    "recentUploads": [
-      {
-        "title": "Moodabidri Thousand Pillars Jain Basadi",
-        "fileName": "Moodabidri_Thousand_Pillars_Jain_Basadi.jpg",
-        "timestamp": "2024-02-14",
-        "sizeMB": 8.1,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Pioneer of Indian language computing and extensive documenter of coastal Karnataka's ancient Jain and Hindu monuments.",
-    "hasProfilePhoto": true
-  },
-  {
-    "username": "Satdeep Gill",
-    "realName": "Satdeep Gill",
-    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gill%2C_Satdeep_Jan_2020.jpg/250px-Gill%2C_Satdeep_Jan_2020.jpg",
-    "uploads": 1940,
-    "editCount": 15845,
-    "registration": "2009-10-26",
-    "state": "Punjab",
-    "city": "Patiala",
-    "region": "Northern India",
-    "groups": [
-      "sysop"
-    ],
-    "qualityImages": 65,
-    "valuedImages": 22,
-    "featuredPictures": 3,
-    "primaryThemes": [
-      "Historical Gurdwaras",
-      "Punjabi Manuscripts",
-      "GLAM Punjab",
-      "Rural Life",
-      "Heritage Gates of Patiala"
-    ],
-    "campaigns": [
-      "GLAM Punjab",
-      "Wiki Loves Monuments",
-      "Punjabi Wikisource"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 48.6,
-    "recentUploads": [
-      {
-        "title": "Gurdwara Fatehgarh Sahib Illumination",
-        "fileName": "Gurdwara_Fatehgarh_Sahib_Illumination.jpg",
-        "timestamp": "2024-11-20",
-        "sizeMB": 10.5,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Commons Administrator (Sysop); spearheaded Punjab institutional partnerships and digitization of rare Panjabi literature.",
-    "hasProfilePhoto": true
-  },
-  {
     "username": "Dev Jadiya",
     "realName": "Dev Jadiya",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Dev_Jadiya_at_ITUWTSA_2024.jpg/250px-Dev_Jadiya_at_ITUWTSA_2024.jpg",
     "uploads": 1850,
-    "editCount": 9897,
+    "editCount": 9918,
     "registration": "2019-08-02",
     "state": "Gujarat",
     "city": "Surat / Rajkot",
     "region": "Western India",
     "groups": [
-      "autopatrolled"
+      "autopatrolled",
+      "event-organizer",
+      "upwizcampeditors"
     ],
     "qualityImages": 62,
     "valuedImages": 16,
@@ -1146,52 +1021,11 @@
     "hasProfilePhoto": true
   },
   {
-    "username": "Dineshkannambadi",
-    "realName": "Dinesh Kannambadi",
-    "avatar": null,
-    "uploads": 1840,
-    "editCount": 2015,
-    "registration": "2008-08-16",
-    "state": "Karnataka",
-    "city": "Mysuru / Bengaluru",
-    "region": "Southern India",
-    "groups": [
-      "autopatrolled",
-      "filemover"
-    ],
-    "qualityImages": 310,
-    "valuedImages": 95,
-    "featuredPictures": 14,
-    "primaryThemes": [
-      "Hoysala Architecture",
-      "Chalukya & Vijayanagara Sculptures",
-      "Belur & Halebidu",
-      "ASI Monuments"
-    ],
-    "campaigns": [
-      "Wiki Loves Monuments",
-      "Hoysala Heritage Project"
-    ],
-    "dominantLicense": "CC-BY-SA 3.0",
-    "estStorageGB": 21.4,
-    "recentUploads": [
-      {
-        "title": "Belur Chennakeshava Temple Intricate Reliefs",
-        "fileName": "Belur_Chennakeshava_Temple_Intricate_Reliefs.jpg",
-        "timestamp": "2022-07-04",
-        "sizeMB": 6.8,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Celebrated photographer of Karnataka's ancient temples; vast collection of encyclopedic images illustrating Indian Wikipedia history articles.",
-    "hasProfilePhoto": false
-  },
-  {
     "username": "Atudu",
     "realName": "Atudu",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Ananya_Mondal_9944.jpg/250px-Ananya_Mondal_9944.jpg",
     "uploads": 1808,
-    "editCount": 71538,
+    "editCount": 71544,
     "registration": "2015-07-13",
     "state": "West Bengal",
     "city": "Bankura",
@@ -1226,47 +1060,6 @@
     ],
     "notableContributions": "Comprehensive field documentation of lesser-known remote stone temples in Bankura, Purulia, and Medinipur.",
     "hasProfilePhoto": true
-  },
-  {
-    "username": "Joydeep",
-    "realName": "Joydeep",
-    "avatar": null,
-    "uploads": 1620,
-    "editCount": 7984,
-    "registration": "2011-08-23",
-    "state": "West Bengal",
-    "city": "Kolkata",
-    "region": "Eastern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 140,
-    "valuedImages": 42,
-    "featuredPictures": 4,
-    "primaryThemes": [
-      "Kolkata Trams & Transport",
-      "Colonial Ghats",
-      "Urban Heritage",
-      "Howrah Bridge",
-      "Old Streetscapes"
-    ],
-    "campaigns": [
-      "Wiki Loves Monuments",
-      "Kolkata Urban Heritage"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 22.8,
-    "recentUploads": [
-      {
-        "title": "Kolkata Tram Crossing Esplanade",
-        "fileName": "Kolkata_Tram_Crossing_Esplanade.jpg",
-        "timestamp": "2024-04-12",
-        "sizeMB": 7.5,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "High Quality Images of Kolkata urban heritage, vintage trams, bridges, and Ganges river transportation.",
-    "hasProfilePhoto": false
   },
   {
     "username": "Snehrashmi",
@@ -1310,86 +1103,6 @@
     "hasProfilePhoto": false
   },
   {
-    "username": "TAPAS KUMAR HALDER",
-    "realName": "Tapas Kumar Halder",
-    "avatar": null,
-    "uploads": 1220,
-    "editCount": 3450,
-    "registration": "2019-04-11",
-    "state": "West Bengal",
-    "city": "Hooghly",
-    "region": "Eastern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 130,
-    "valuedImages": 26,
-    "featuredPictures": 2,
-    "primaryThemes": [
-      "Bansberia Temples",
-      "Terracotta Carvings",
-      "Riverine Hooghly",
-      "Quality Images of India"
-    ],
-    "campaigns": [
-      "Wiki Loves Monuments India",
-      "Quality Images"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 16.4,
-    "recentUploads": [
-      {
-        "title": "Hanseswari Temple Bansberia Facade",
-        "fileName": "Hanseswari_Temple_Bansberia_Facade.jpg",
-        "timestamp": "2026-09-02",
-        "sizeMB": 11.2,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "High proportion of Quality Image awards; remarkable architectural detail captures of Bansberia and surrounding heritage complexes.",
-    "hasProfilePhoto": false
-  },
-  {
-    "username": "Sourabh.biswas003",
-    "realName": "Sourabh Biswas",
-    "avatar": null,
-    "uploads": 1180,
-    "editCount": 2900,
-    "registration": "2018-05-14",
-    "state": "West Bengal",
-    "city": "Siliguri",
-    "region": "Eastern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 142,
-    "valuedImages": 29,
-    "featuredPictures": 3,
-    "primaryThemes": [
-      "Sunbirds & Pollinators",
-      "North Bengal Avifauna",
-      "Dooars Wildlife",
-      "Wild Orchids"
-    ],
-    "campaigns": [
-      "Wiki Loves Earth",
-      "Quality Images Candidate"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 15.3,
-    "recentUploads": [
-      {
-        "title": "Crimson Sunbird Feeding Nectar",
-        "fileName": "Crimson_Sunbird_Feeding_Nectar.jpg",
-        "timestamp": "2025-04-09",
-        "sizeMB": 6.7,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "Renowned for vivid avian action photography in the Himalayan foothills and Dooars region.",
-    "hasProfilePhoto": false
-  },
-  {
     "username": "KCVelaga",
     "realName": "Krishna Chaitanya Velaga",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Krishna_Chaitanya_Velaga_at_WCI_2023_Day-1.jpg/250px-Krishna_Chaitanya_Velaga_at_WCI_2023_Day-1.jpg",
@@ -1402,7 +1115,8 @@
     "groups": [
       "filemover",
       "image-reviewer",
-      "rollbacker"
+      "rollbacker",
+      "upwizcampeditors"
     ],
     "qualityImages": 35,
     "valuedImages": 8,
@@ -1430,6 +1144,47 @@
       }
     ],
     "hasProfilePhoto": true
+  },
+  {
+    "username": "Dineshkannambadi",
+    "realName": "Dinesh Kannambadi",
+    "avatar": null,
+    "uploads": 993,
+    "editCount": 2015,
+    "registration": "2008-08-16",
+    "state": "Karnataka",
+    "city": "Mysuru / Bengaluru",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled",
+      "filemover"
+    ],
+    "qualityImages": 310,
+    "valuedImages": 95,
+    "featuredPictures": 14,
+    "primaryThemes": [
+      "Hoysala Architecture",
+      "Chalukya & Vijayanagara Sculptures",
+      "Belur & Halebidu",
+      "ASI Monuments"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Hoysala Heritage Project"
+    ],
+    "dominantLicense": "CC-BY-SA 3.0",
+    "estStorageGB": 21.4,
+    "recentUploads": [
+      {
+        "title": "Belur Chennakeshava Temple Intricate Reliefs",
+        "fileName": "Belur_Chennakeshava_Temple_Intricate_Reliefs.jpg",
+        "timestamp": "2022-07-04",
+        "sizeMB": 6.8,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Celebrated photographer of Karnataka's ancient temples; vast collection of encyclopedic images illustrating Indian Wikipedia history articles.",
+    "hasProfilePhoto": false
   },
   {
     "username": "Tshrinivasan",
@@ -1488,10 +1243,220 @@
     "hasProfilePhoto": true
   },
   {
+    "username": "TAPAS KUMAR HALDER",
+    "realName": "Tapas Kumar Halder",
+    "avatar": null,
+    "uploads": 578,
+    "editCount": 1814,
+    "registration": "2019-04-11",
+    "state": "West Bengal",
+    "city": "Hooghly",
+    "region": "Eastern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 130,
+    "valuedImages": 26,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Bansberia Temples",
+      "Terracotta Carvings",
+      "Riverine Hooghly",
+      "Quality Images of India"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Quality Images"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 16.4,
+    "recentUploads": [
+      {
+        "title": "Hanseswari Temple Bansberia Facade",
+        "fileName": "Hanseswari_Temple_Bansberia_Facade.jpg",
+        "timestamp": "2026-09-02",
+        "sizeMB": 11.2,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "High proportion of Quality Image awards; remarkable architectural detail captures of Bansberia and surrounding heritage complexes.",
+    "hasProfilePhoto": false
+  },
+  {
+    "username": "Praveenp",
+    "realName": "Praveen P",
+    "avatar": null,
+    "uploads": 545,
+    "editCount": 12670,
+    "registration": "2008-01-09",
+    "state": "Kerala",
+    "city": "Kannur",
+    "region": "Southern India",
+    "groups": [
+      "filemover",
+      "patroller",
+      "rollbacker"
+    ],
+    "qualityImages": 95,
+    "valuedImages": 38,
+    "featuredPictures": 4,
+    "primaryThemes": [
+      "Theyyam Folk Rituals",
+      "Northern Kerala Culture",
+      "Malayalam Heritage",
+      "Endemic Flora",
+      "Temples"
+    ],
+    "campaigns": [
+      "Wiki Loves Folklore",
+      "Wiki Loves Earth",
+      "Malayalam WikiProjects"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 32.7,
+    "recentUploads": [
+      {
+        "title": "Theyyam Performance in Kannur",
+        "fileName": "Theyyam_Performance_in_Kannur.jpg",
+        "timestamp": "2024-03-15",
+        "sizeMB": 8.7,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Longstanding Malayalam community leader; exceptional documentation of sacred groves and northern Kerala ritualistic dance forms.",
+    "hasProfilePhoto": false
+  },
+  {
+    "username": "Joydeep",
+    "realName": "Joydeep",
+    "avatar": null,
+    "uploads": 530,
+    "editCount": 7984,
+    "registration": "2011-08-23",
+    "state": "West Bengal",
+    "city": "Kolkata",
+    "region": "Eastern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 140,
+    "valuedImages": 42,
+    "featuredPictures": 4,
+    "primaryThemes": [
+      "Kolkata Trams & Transport",
+      "Colonial Ghats",
+      "Urban Heritage",
+      "Howrah Bridge",
+      "Old Streetscapes"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments",
+      "Kolkata Urban Heritage"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 22.8,
+    "recentUploads": [
+      {
+        "title": "Kolkata Tram Crossing Esplanade",
+        "fileName": "Kolkata_Tram_Crossing_Esplanade.jpg",
+        "timestamp": "2024-04-12",
+        "sizeMB": 7.5,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "High Quality Images of Kolkata urban heritage, vintage trams, bridges, and Ganges river transportation.",
+    "hasProfilePhoto": false
+  },
+  {
+    "username": "Subhrajyoti07",
+    "realName": "Subhrajyoti Mukherjee",
+    "avatar": null,
+    "uploads": 351,
+    "editCount": 4152,
+    "registration": "2017-06-23",
+    "state": "West Bengal",
+    "city": "Kolkata",
+    "region": "Eastern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 285,
+    "valuedImages": 52,
+    "featuredPictures": 5,
+    "primaryThemes": [
+      "Monuments of National Importance",
+      "Colonial Kolkata",
+      "ASI Monuments",
+      "Night Photography",
+      "Palaces"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Wiki Explores Hooghly"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 45.8,
+    "recentUploads": [
+      {
+        "title": "Victoria Memorial Hall Kolkata Night View",
+        "fileName": "Victoria_Memorial_Hall_Kolkata_Night_View.jpg",
+        "timestamp": "2024-09-12",
+        "sizeMB": 14.2,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Award-winning contributor to Wiki Loves Monuments India; renowned for balanced long-exposure architectural photographs.",
+    "hasProfilePhoto": false
+  },
+  {
+    "username": "Kuldeepburjbhalaike",
+    "realName": "Kuldeep Singh",
+    "avatar": null,
+    "uploads": 289,
+    "editCount": 7517,
+    "registration": "2020-03-17",
+    "state": "Punjab",
+    "city": "Mansa",
+    "region": "Northern India",
+    "groups": [
+      "autopatrolled",
+      "filemover",
+      "upwizcampeditors"
+    ],
+    "qualityImages": 120,
+    "valuedImages": 32,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Gurdwaras of Punjab",
+      "Rural Punjab Architecture",
+      "Sikh Heritage",
+      "Agricultural Landscapes",
+      "Traditional Implements"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments Punjab",
+      "Wiki Loves Folklore",
+      "Punjabi Wikimedians"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 38.2,
+    "recentUploads": [
+      {
+        "title": "Gurdwara Nanaksar Sahib in Punjab",
+        "fileName": "Gurdwara_Nanaksar_Sahib_in_Punjab.jpg",
+        "timestamp": "2025-11-04",
+        "sizeMB": 9.4,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Systematic documentation of historical and rural Gurdwaras across Malwa, Majha, and Doaba regions of Punjab.",
+    "hasProfilePhoto": false
+  },
+  {
     "username": "Kalyanvarma",
     "realName": "Kalyan Varma",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kalyan_Varma.jpg/250px-Kalyan_Varma.jpg",
-    "uploads": 420,
+    "uploads": 192,
     "editCount": 380,
     "registration": "2006-11-21",
     "state": "Karnataka",
@@ -1527,5 +1492,48 @@
     ],
     "notableContributions": "Celebrated wildlife filmmaker and photographer; contributed some of the highest-rated Featured Pictures of Indian megafauna on Wikimedia Commons.",
     "hasProfilePhoto": true
+  },
+  {
+    "username": "Kiran Gopi",
+    "realName": "Kiran Gopi",
+    "avatar": null,
+    "uploads": 152,
+    "editCount": 5213,
+    "registration": "2010-03-20",
+    "state": "Kerala",
+    "city": "Kochi",
+    "region": "Southern India",
+    "groups": [
+      "filemover",
+      "image-reviewer",
+      "rollbacker"
+    ],
+    "qualityImages": 320,
+    "valuedImages": 72,
+    "featuredPictures": 7,
+    "primaryThemes": [
+      "Avifauna (Birds of Western Ghats)",
+      "Wildlife Conservation",
+      "Butterflies",
+      "Forest Sanctuaries"
+    ],
+    "campaigns": [
+      "Wiki Loves Earth",
+      "Western Ghats Biodiversity",
+      "Quality Images"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 29.5,
+    "recentUploads": [
+      {
+        "title": "Malabar Grey Hornbill in Thattekad Bird Sanctuary",
+        "fileName": "Malabar_Grey_Hornbill_in_Thattekad.jpg",
+        "timestamp": "2023-12-18",
+        "sizeMB": 7.3,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "Active Quality Image reviewer on Commons; authoritative bird photography spanning Thattekad, Periyar, and Wayanad reserves.",
+    "hasProfilePhoto": false
   }
 ]
