@@ -463,8 +463,8 @@
     "username": "Info-farmer",
     "realName": "Info-farmer",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Wikimedia_Summit_2019_-_Portrait_Loganathan_Rathinavel_%282%29.jpg/250px-Wikimedia_Summit_2019_-_Portrait_Loganathan_Rathinavel_%282%29.jpg",
-    "uploads": 5769,
-    "editCount": 87566,
+    "uploads": 5779,
+    "editCount": 87587,
     "registration": "2008-09-16",
     "state": "Tamil Nadu",
     "city": "Salem",
@@ -534,6 +534,38 @@
     "hasProfilePhoto": true
   },
   {
+    "username": "Yakshitha",
+    "realName": "Yakshitha",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Yakshitha_-_Tulu_Wikimedian_at_Wikimania_2025.jpg/250px-Yakshitha_-_Tulu_Wikimedian_at_Wikimania_2025.jpg",
+    "uploads": 5650,
+    "editCount": 11034,
+    "registration": "2018-09-12",
+    "state": "Karnataka",
+    "city": "Mangaluru / Udupi",
+    "region": "Southern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 95,
+    "valuedImages": 28,
+    "featuredPictures": 3,
+    "primaryThemes": [
+      "Yakshagana Theatre",
+      "Tulu Culture",
+      "Coastal Karnataka Temples",
+      "Folk Art Traditions"
+    ],
+    "campaigns": [
+      "Tulu Wikipedia Project",
+      "Wiki Loves Folklore",
+      "Wiki Loves Earth"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 44.5,
+    "notableContributions": "Major contributor of Coastal Karnataka indigenous culture, coastal temple festivals, and Yakshagana folk theatre documentation.",
+    "hasProfilePhoto": true
+  },
+  {
     "username": "Sourabh.biswas003",
     "realName": "Sourabh Biswas",
     "avatar": null,
@@ -574,43 +606,11 @@
     "hasProfilePhoto": false
   },
   {
-    "username": "Yakshitha",
-    "realName": "Yakshitha",
-    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Yakshitha_-_Tulu_Wikimedian_at_Wikimania_2025.jpg/250px-Yakshitha_-_Tulu_Wikimedian_at_Wikimania_2025.jpg",
-    "uploads": 5602,
-    "editCount": 10985,
-    "registration": "2018-09-12",
-    "state": "Karnataka",
-    "city": "Mangaluru / Udupi",
-    "region": "Southern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 95,
-    "valuedImages": 28,
-    "featuredPictures": 3,
-    "primaryThemes": [
-      "Yakshagana Theatre",
-      "Tulu Culture",
-      "Coastal Karnataka Temples",
-      "Folk Art Traditions"
-    ],
-    "campaigns": [
-      "Tulu Wikipedia Project",
-      "Wiki Loves Folklore",
-      "Wiki Loves Earth"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 44.5,
-    "notableContributions": "Major contributor of Coastal Karnataka indigenous culture, coastal temple festivals, and Yakshagana folk theatre documentation.",
-    "hasProfilePhoto": true
-  },
-  {
     "username": "I.Mahesh",
     "realName": "I. Mahesh",
     "avatar": null,
     "uploads": 5462,
-    "editCount": 37952,
+    "editCount": 37959,
     "registration": "2015-09-16",
     "state": "Andhra Pradesh / Telangana",
     "city": "Bhimavaram",
@@ -791,8 +791,8 @@
     "username": "Tagooty",
     "realName": "Tagooty",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_A_Gonsalves_Sony_Camera_Windermere_Ooty_Mar21_IMG_2338.jpg/250px-Timothy_A_Gonsalves_Sony_Camera_Windermere_Ooty_Mar21_IMG_2338.jpg",
-    "uploads": 4120,
-    "editCount": 59516,
+    "uploads": 4122,
+    "editCount": 59524,
     "registration": "2019-09-08",
     "state": "Karnataka",
     "city": "Bengaluru",
@@ -946,8 +946,8 @@
     "username": "Gnoeee",
     "realName": "Gopikrishnan (Gnoeee)",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jinoy_Tom_Jacob_at_WTS2024.jpg/250px-Jinoy_Tom_Jacob_at_WTS2024.jpg",
-    "uploads": 2689,
-    "editCount": 147637,
+    "uploads": 2693,
+    "editCount": 147647,
     "registration": "2010-09-10",
     "state": "Kerala",
     "city": "Thrissur",
@@ -993,7 +993,7 @@
     "realName": "Dev Jadiya",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Dev_Jadiya_at_ITUWTSA_2024.jpg/250px-Dev_Jadiya_at_ITUWTSA_2024.jpg",
     "uploads": 1850,
-    "editCount": 9918,
+    "editCount": 9919,
     "registration": "2019-08-02",
     "state": "Gujarat",
     "city": "Surat / Rajkot",
@@ -1413,7 +1413,7 @@
     "realName": "Kuldeep Singh",
     "avatar": null,
     "uploads": 289,
-    "editCount": 7517,
+    "editCount": 7518,
     "registration": "2020-03-17",
     "state": "Punjab",
     "city": "Mansa",
