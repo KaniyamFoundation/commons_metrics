@@ -136,8 +136,8 @@
     "username": "Yercaud-elango",
     "realName": "Yercaud Elango",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Yercaud_elango-science_writer-1-yercaud-salem-India.jpg/250px-Yercaud_elango-science_writer-1-yercaud-salem-India.jpg",
-    "uploads": 26450,
-    "editCount": 37076,
+    "uploads": 26488,
+    "editCount": 37152,
     "registration": "2014-11-22",
     "state": "Tamil Nadu",
     "city": "Yercaud, Salem",
@@ -256,7 +256,7 @@
     "realName": "Bodhisattwa Mandal",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Bodhi_at_GLAM-Wiki_2023.jpg/250px-Bodhi_at_GLAM-Wiki_2023.jpg",
     "uploads": 15367,
-    "editCount": 352509,
+    "editCount": 352524,
     "registration": "2013-09-28",
     "state": "West Bengal",
     "city": "Kolkata",
@@ -750,8 +750,8 @@
     "username": "Pavanaja",
     "realName": "Dr. U. B. Pavanaja",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pavanaja-UB.jpg/250px-Pavanaja-UB.jpg",
-    "uploads": 4298,
-    "editCount": 7398,
+    "uploads": 4299,
+    "editCount": 7400,
     "registration": "2011-01-16",
     "state": "Karnataka",
     "city": "Mangaluru / Bengaluru",
@@ -792,7 +792,7 @@
     "realName": "Tagooty",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_A_Gonsalves_Sony_Camera_Windermere_Ooty_Mar21_IMG_2338.jpg/250px-Timothy_A_Gonsalves_Sony_Camera_Windermere_Ooty_Mar21_IMG_2338.jpg",
     "uploads": 4266,
-    "editCount": 62136,
+    "editCount": 62151,
     "registration": "2019-09-08",
     "state": "Karnataka",
     "city": "Bengaluru",
@@ -1025,7 +1025,7 @@
     "realName": "Atudu",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Ananya_Mondal_9944.jpg/250px-Ananya_Mondal_9944.jpg",
     "uploads": 1808,
-    "editCount": 72360,
+    "editCount": 72468,
     "registration": "2015-07-13",
     "state": "West Bengal",
     "city": "Bankura",
@@ -1187,6 +1187,46 @@
     "hasProfilePhoto": false
   },
   {
+    "username": "TAPAS KUMAR HALDER",
+    "realName": "Tapas Kumar Halder",
+    "avatar": null,
+    "uploads": 608,
+    "editCount": 1913,
+    "registration": "2019-04-11",
+    "state": "West Bengal",
+    "city": "Hooghly",
+    "region": "Eastern India",
+    "groups": [
+      "autopatrolled"
+    ],
+    "qualityImages": 130,
+    "valuedImages": 26,
+    "featuredPictures": 2,
+    "primaryThemes": [
+      "Bansberia Temples",
+      "Terracotta Carvings",
+      "Riverine Hooghly",
+      "Quality Images of India"
+    ],
+    "campaigns": [
+      "Wiki Loves Monuments India",
+      "Quality Images"
+    ],
+    "dominantLicense": "CC-BY-SA 4.0",
+    "estStorageGB": 16.4,
+    "recentUploads": [
+      {
+        "title": "Hanseswari Temple Bansberia Facade",
+        "fileName": "Hanseswari_Temple_Bansberia_Facade.jpg",
+        "timestamp": "2026-09-02",
+        "sizeMB": 11.2,
+        "mime": "image/jpeg"
+      }
+    ],
+    "notableContributions": "High proportion of Quality Image awards; remarkable architectural detail captures of Bansberia and surrounding heritage complexes.",
+    "hasProfilePhoto": false
+  },
+  {
     "username": "Tshrinivasan",
     "realName": "T. Shrinivasan (த. சீனிவாசன்)",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Shrinivasan_01.jpg/250px-Shrinivasan_01.jpg",
@@ -1241,46 +1281,6 @@
       }
     ],
     "hasProfilePhoto": true
-  },
-  {
-    "username": "TAPAS KUMAR HALDER",
-    "realName": "Tapas Kumar Halder",
-    "avatar": null,
-    "uploads": 606,
-    "editCount": 1909,
-    "registration": "2019-04-11",
-    "state": "West Bengal",
-    "city": "Hooghly",
-    "region": "Eastern India",
-    "groups": [
-      "autopatrolled"
-    ],
-    "qualityImages": 130,
-    "valuedImages": 26,
-    "featuredPictures": 2,
-    "primaryThemes": [
-      "Bansberia Temples",
-      "Terracotta Carvings",
-      "Riverine Hooghly",
-      "Quality Images of India"
-    ],
-    "campaigns": [
-      "Wiki Loves Monuments India",
-      "Quality Images"
-    ],
-    "dominantLicense": "CC-BY-SA 4.0",
-    "estStorageGB": 16.4,
-    "recentUploads": [
-      {
-        "title": "Hanseswari Temple Bansberia Facade",
-        "fileName": "Hanseswari_Temple_Bansberia_Facade.jpg",
-        "timestamp": "2026-09-02",
-        "sizeMB": 11.2,
-        "mime": "image/jpeg"
-      }
-    ],
-    "notableContributions": "High proportion of Quality Image awards; remarkable architectural detail captures of Bansberia and surrounding heritage complexes.",
-    "hasProfilePhoto": false
   },
   {
     "username": "Joydeep",
